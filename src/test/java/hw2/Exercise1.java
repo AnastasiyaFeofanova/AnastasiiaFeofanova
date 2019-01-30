@@ -14,6 +14,8 @@ import java.util.concurrent.TimeUnit;
 
 import static java.lang.System.setProperty;
 
+// TODO Could you please make class/test name with relation with it purpose/group.
+// TODO For each exercise separate package should be created.
 public class Exercise1 extends SeleniumBase {
 
     private WebDriver driver;

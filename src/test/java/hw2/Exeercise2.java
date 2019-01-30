@@ -16,6 +16,7 @@ import static java.lang.System.setProperty;
 
 //invocationCount = 3, threadPoolSize = 3, groups = {"Smoke"}
 
+// TODO Where is *.xml TestNG configuration files ?
 public class Exeercise2 extends SeleniumBase {
 
 ///Test1///---------------------------------------------------------------------------------------------------------------
