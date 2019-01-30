@@ -1,4 +1,4 @@
-package hw2;
+package hw2.exercise3;
 
 import base.SeleniumBase;
 import dataProviders.Exercise1DataProvider;
@@ -15,39 +15,45 @@ import java.util.concurrent.TimeUnit;
 import static java.lang.System.currentTimeMillis;
 import static java.lang.System.setProperty;
 
-public class Exercise3 extends SeleniumBase {
+public class AnnotationsTestNGExample extends SeleniumBase {
 
     private WebDriver driver;
     private long time;
 
     @BeforeSuite(alwaysRun = true)
-    public void beforeSuite(){
+    public void beforeSuite() {
         setProperty("webdriver.chrome.driver",
                 "src\\main\\resources\\chromedriver.exe");
         time = currentTimeMillis();
     }
 
     @BeforeMethod(alwaysRun = true)
-    public  void beforeMethod() {
-        driver  = new ChromeDriver();
+    public void beforeMethod() {
+        driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
     }
+
     @AfterMethod(alwaysRun = true)
-    public  void afterMethod(){
+    public void afterMethod() {
         System.out.println(driver.getTitle());
         driver.close();
     }
+
     @AfterClass(alwaysRun = true)
-    public void afterClass(){
-        if (driver != null) {driver.quit();}
+    public void afterClass() {
+        if (driver != null) {
+            driver.quit();
+        }
     }
 
     @AfterSuite(alwaysRun = true)
-    public void afterSuite(){System.out.println("Test framework worked: " + (currentTimeMillis()-time)/60+" c");}
+    public void afterSuite() {
+        System.out.println("Test framework worked: " + (currentTimeMillis() - time) / 60 + " c");
+    }
 
-    @Test(dataProvider = "exersise1DataProvider", dataProviderClass = Exercise1DataProvider.class, groups = "Ex3")
-    public void exersise1(int i, String s) {
+    @Test(dataProvider = "exercise1DataProvider", dataProviderClass = Exercise1DataProvider.class, groups = "Ex3")
+    public void annotationsTestNGExample(int i, String s) {
 
         // Navigate
         driver.navigate().to("https://epam.github.io/JDI/index.html");
