@@ -14,8 +14,7 @@ import java.util.concurrent.TimeUnit;
 
 import static java.lang.System.setProperty;
 
-// TODO Pay attention to code convention, reformat your code via IDEA
-// TODO Unnecessary comments(like //---...) should be removed, this comment does not make your code more readable
+// TODO Pay attention to code convention, CamelCase
 public class HomeWork1 {
     @Test
     public void checkHomePageElements() {
