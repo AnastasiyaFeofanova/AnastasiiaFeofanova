@@ -14,9 +14,11 @@ import java.util.concurrent.TimeUnit;
 
 import static java.lang.System.setProperty;
 
+// TODO Pay attention to code convention, CamelCase
 public class HomeWork1 {
     @Test
     public void checkHomePageElements() {
+
         setProperty("webdriver.chrome.driver",
                 "src\\main\\resources\\chromedriver.exe");
 
@@ -49,29 +51,30 @@ public class HomeWork1 {
         WebElement home = driver.findElement(By.xpath("//a[starts-with(@href, 'index.html')]"));
         Assert.assertEquals(home.getText(), "HOME");
 
-        WebElement contactForm = driver.findElement(By.xpath("//a[starts-with(@href, 'contacts.html')]"));
-        Assert.assertEquals(contactForm.getText(), "CONTACT FORM");
+        WebElement contactform = driver.findElement(By.xpath("//a[starts-with(@href, 'contacts.html')]"));
+        Assert.assertEquals(contactform.getText(), "CONTACT FORM");
 
         WebElement service = driver.findElement(By.className("dropdown-toggle"));
         Assert.assertEquals(service.getText(), "SERVICE");
 
-        WebElement metCol = driver.findElement(By.xpath("//a[starts-with(@href, 'metals-colors.html')]"));
-        Assert.assertEquals(metCol.getText(), "METALS & COLORS");
+        WebElement metcol = driver.findElement(By.xpath("//a[starts-with(@href, 'metals-colors.html')]"));
+        Assert.assertEquals(metcol.getText(), "METALS & COLORS");
 
         //7 Assert that there are 4 images on the Index Page and they are displayed
-        WebElement practiseIcon = driver.findElement(By.className("icon-practise"));
-        Assert.assertTrue(practiseIcon.isDisplayed());
+        WebElement practiseicon = driver.findElement(By.className("icon-practise"));
+        Assert.assertTrue(practiseicon.isDisplayed());
 
-        WebElement customIcon = driver.findElement(By.className("icon-custom"));
-        Assert.assertTrue(customIcon.isDisplayed());
+        WebElement customicon = driver.findElement(By.className("icon-custom"));
+        Assert.assertTrue(customicon.isDisplayed());
 
-        WebElement multiIcon = driver.findElement(By.className("icon-multi"));
-        Assert.assertTrue(multiIcon.isDisplayed());
+        WebElement multiicon = driver.findElement(By.className("icon-multi"));
+        Assert.assertTrue(multiicon.isDisplayed());
 
-        WebElement baseIcon = driver.findElement(By.className("icon-base"));
-        Assert.assertTrue(baseIcon.isDisplayed());
+        WebElement baseicon = driver.findElement(By.className("icon-base"));
+        Assert.assertTrue(baseicon.isDisplayed());
 
         //8 Assert that there are 4 texts on the Index Page under icons and they have proper text
+
         List<WebElement> elements = driver.findElements(By.className("benefit-txt"));
         Assert.assertEquals(elements.size(), 4);
         Assert.assertEquals(elements.get(0).getText(), "To include good practices\n" +
@@ -83,6 +86,7 @@ public class HomeWork1 {
         Assert.assertEquals(elements.get(3).getText(), "Already have good base\n(about 20 internal and\nsome external projects),\nwish to get more…");
 
         //9 Assert a text of the main header
+
         WebElement headerText = driver.findElement(By.className("main-title"));
         Assert.assertEquals(headerText.getText(), "EPAM FRAMEWORK WISHES…");
         WebElement textCenter = driver.findElement(By.cssSelector(".main-txt"));
@@ -90,33 +94,33 @@ public class HomeWork1 {
                 "LABORE ET DOLORE MAGNA ALIQUA. UT ENIM AD MINIM VENIAM, QUIS NOSTRUD EXERCITATION ULLAMCO LABORIS NISI UT " +
                 "ALIQUIP EX EA COMMODO CONSEQUAT DUIS AUTE IRURE DOLOR IN REPREHENDERIT IN VOLUPTATE VELIT ESSE CILLUM DOLORE EU FUGIAT NULLA PARIATUR.");
 
-//      //10 Assert that there is the iframe in the center of page
+//        //10 Assert that there is the iframe in the center of page
         WebElement iFrame = driver.findElement(By.cssSelector("[id='iframe']"));
         Assert.assertTrue(iFrame.isDisplayed());
 
-//      //11 Switch to the iframe and check that there is Epam logo in the left top conner of iframe
-        WebDriver iFrameWebDriver = driver.switchTo().frame("iframe");
-//      iframeWebDriver.get(iframeWebDriver.getCurrentUrl()); //for Firefox
+//        //11 Switch to the iframe and check that there is Epam logo in the left top conner of iframe
+        WebDriver iframeWebDriver = driver.switchTo().frame("iframe");
+//        iframeWebDriver.get(iframeWebDriver.getCurrentUrl()); //for Firefox
 
-        WebElement logo = iFrameWebDriver.findElement(By.className("epam-logo"));
+        WebElement logo = iframeWebDriver.findElement(By.className("epam-logo"));
         Assert.assertTrue(logo.isDisplayed());
 
         //12 Switch to original window back
-//      driver.navigate().to("https://epam.github.io/JDI/");
-//      driver.switchTo().window("mainWindow");
+//        driver.navigate().to("https://epam.github.io/JDI/");
+//        driver.switchTo().window("mainWindow");
         driver.switchTo().window(mainWindow);
 
         //13 Assert a text of the sub header
-        WebElement subTxt = driver.findElement(By.xpath("//a[starts-with(@href, 'https://github.com/epam/JDI')]"));
-        Assert.assertEquals(subTxt.getText(), "JDI GITHUB");
+        WebElement subtxt = driver.findElement(By.xpath("//a[starts-with(@href, 'https://github.com/epam/JDI')]"));
+        Assert.assertEquals(subtxt.getText(), "JDI GITHUB");
 
 //        //14 Assert that JDI GITHUB is a link and has a proper URL
-        WebElement subTxt1 = driver.findElement(By.linkText("JDI GITHUB"));
-        Assert.assertEquals(subTxt1.getAttribute("href"), "https://github.com/epam/JDI");
+        WebElement subtxt1 = driver.findElement(By.linkText("JDI GITHUB"));
+        Assert.assertEquals(subtxt1.getAttribute("href"), "https://github.com/epam/JDI");
 
 //        //15 Assert that there is Left Section
-        WebElement leftSection = driver.findElement(By.id("mCSB_1"));
-        Assert.assertTrue(leftSection.isDisplayed());
+        WebElement leftsection = driver.findElement(By.id("mCSB_1"));
+        Assert.assertTrue(leftsection.isDisplayed());
 
 //        //16 Assert that there is Footer
         WebElement footer = driver.findElement(By.className("footer-bg"));
