@@ -3,7 +3,6 @@ package dataProviders;
 import org.testng.annotations.DataProvider;
 
 public class Exercise1DataProvider {
-    //@org.testng.annotations.DataProvider
     @DataProvider
     public Object[][] exersise1DataProvider(){
         return new Object[][]{
