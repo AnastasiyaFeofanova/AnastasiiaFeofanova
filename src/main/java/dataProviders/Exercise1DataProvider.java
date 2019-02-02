@@ -3,8 +3,6 @@ package dataProviders;
 import org.testng.annotations.DataProvider;
 
 public class Exercise1DataProvider {
-    // TODO You should not leave the comments like this
-    //@org.testng.annotations.DataProvider
     @DataProvider
     public Object[][] exersise1DataProvider(){
         return new Object[][]{

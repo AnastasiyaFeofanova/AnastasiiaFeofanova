@@ -1,4 +1,7 @@
 # Created by .ignore support plugin (hsz.mobi)
 /AnastasiyaFeofanova.iml
 /.idea/
-# TODO this file should be improved, binary target dir missing
+target
+debug.log
+desctop.ini
+#
