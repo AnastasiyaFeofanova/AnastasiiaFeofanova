@@ -137,7 +137,7 @@ public class HomePageForHW3 {
         Assert.assertEquals(link.getAttribute(attribute), text);
     }
 
-    public void checkLeftSection(){
+    public void checkleftSection(){
         Assert.assertTrue(leftSection.isDisplayed());
     }
 

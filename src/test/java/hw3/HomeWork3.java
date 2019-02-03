@@ -96,7 +96,7 @@ public class HomeWork3 extends SeleniumBase {
         homePage.checkLink(LINK_ATTRIBUTE, GITHUB_URL);
 
 //        //15 Assert that there is Left Section
-        homePage.checkLeftSection();
+        homePage.checkleftSection();
 
 //        //16 Assert that there is Footer
         homePage.checkfooter();

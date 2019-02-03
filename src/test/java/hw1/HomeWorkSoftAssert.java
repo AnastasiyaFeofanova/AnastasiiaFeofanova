@@ -49,27 +49,27 @@ public class HomeWorkSoftAssert {
         WebElement home = driver.findElement(By.xpath("//a[starts-with(@href, 'index.html')]"));
         softAssert.assertEquals(home.getText(), "HOME");
 
-        WebElement contactform = driver.findElement(By.xpath("//a[starts-with(@href, 'contacts.html')]"));
-        Assert.assertEquals(contactform.getText(), "CONTACT FORM");
+        WebElement contactForm = driver.findElement(By.xpath("//a[starts-with(@href, 'contacts.html')]"));
+        Assert.assertEquals(contactForm.getText(), "CONTACT FORM");
 
         WebElement service = driver.findElement(By.className("dropdown-toggle"));
         Assert.assertEquals(service.getText(), "SERVICE");
 
-        WebElement metcol = driver.findElement(By.xpath("//a[starts-with(@href, 'metals-colors.html')]"));
-        Assert.assertEquals(metcol.getText(), "METALS & COLORS");
+        WebElement metCol = driver.findElement(By.xpath("//a[starts-with(@href, 'metals-colors.html')]"));
+        Assert.assertEquals(metCol.getText(), "METALS & COLORS");
 
         //7 Assert that there are 4 images on the Index Page and they are displayed
-        WebElement practiseicon = driver.findElement(By.className("icon-practise"));
-        softAssert.assertTrue(practiseicon.isDisplayed());
+        WebElement practiseIcon = driver.findElement(By.className("icon-practise"));
+        softAssert.assertTrue(practiseIcon.isDisplayed());
 
-        WebElement customicon = driver.findElement(By.className("icon-custom"));
-        softAssert.assertTrue(customicon.isDisplayed());
+        WebElement customIcon = driver.findElement(By.className("icon-custom"));
+        softAssert.assertTrue(customIcon.isDisplayed());
 
-        WebElement multiicon = driver.findElement(By.className("icon-multi"));
-        softAssert.assertTrue(multiicon.isDisplayed());
+        WebElement multiIcon = driver.findElement(By.className("icon-multi"));
+        softAssert.assertTrue(multiIcon.isDisplayed());
 
-        WebElement baseicon = driver.findElement(By.className("icon-base"));
-        softAssert.assertTrue(baseicon.isDisplayed());
+        WebElement baseIcon = driver.findElement(By.className("icon-base"));
+        softAssert.assertTrue(baseIcon.isDisplayed());
 
         //8 Assert that there are 4 texts on the Index Page under icons and they have proper text
         List<WebElement> elements = driver.findElements(By.className("benefit-txt"));
@@ -96,9 +96,9 @@ public class HomeWorkSoftAssert {
         softAssert.assertTrue(iFrame.isDisplayed());
 
 //        //11 Switch to the iframe and check that there is Epam logo in the left top conner of iframe
-        WebDriver iframeWebDriver = driver.switchTo().frame("iframe");
-        iframeWebDriver.get(iframeWebDriver.getCurrentUrl()); //for Firefox
-        WebElement logo = iframeWebDriver.findElement(By.className("epam-logo"));
+        WebDriver iFrameWebDriver = driver.switchTo().frame("iframe");
+        iFrameWebDriver.get(iFrameWebDriver.getCurrentUrl()); //for Firefox
+        WebElement logo = iFrameWebDriver.findElement(By.className("epam-logo"));
         softAssert.assertTrue(logo.isDisplayed());
 
         //12 Switch to original window back
@@ -107,16 +107,16 @@ public class HomeWorkSoftAssert {
         driver.switchTo().window(mainWindow);
 
 //        //13 Assert a text of the sub header
-        WebElement subtxt = driver.findElement(By.xpath("//a[starts-with(@href, 'https://github.com/epam/JDI')]"));
-        softAssert.assertEquals(subtxt.getText(), "JDI GITHUB");
+        WebElement subTxt = driver.findElement(By.xpath("//a[starts-with(@href, 'https://github.com/epam/JDI')]"));
+        softAssert.assertEquals(subTxt.getText(), "JDI GITHUB");
 
 //        //14 Assert that JDI GITHUB is a link and has a proper URL
-        WebElement subtxt1 = driver.findElement(By.linkText("JDI GITHUB"));
-        softAssert.assertEquals(subtxt1.getAttribute("href"), "https://github.com/epam/JDI");
+        WebElement subTxt1 = driver.findElement(By.linkText("JDI GITHUB"));
+        softAssert.assertEquals(subTxt1.getAttribute("href"), "https://github.com/epam/JDI");
 
 //        //15 Assert that there is Left Section
-        WebElement leftsection = driver.findElement(By.id("mCSB_1"));
-        softAssert.assertTrue(leftsection.isDisplayed());
+        WebElement leftSection = driver.findElement(By.id("mCSB_1"));
+        softAssert.assertTrue(leftSection.isDisplayed());
 
 //        //16 Assert that there is Footer
         WebElement footer = driver.findElement(By.className("footer-bg"));

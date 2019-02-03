@@ -99,7 +99,7 @@ public class HomeWork1 {
 
 //        //11 Switch to the iframe and check that there is Epam logo in the left top conner of iframe
         WebDriver iFrameWebDriver = driver.switchTo().frame("iframe");
-//        iframeWebDriver.get(iframeWebDriver.getCurrentUrl()); //for Firefox
+//        iFrameWebDriver.get(iFrameWebDriver.getCurrentUrl()); //for Firefox
 
         WebElement logo = iFrameWebDriver.findElement(By.className("epam-logo"));
         Assert.assertTrue(logo.isDisplayed());
