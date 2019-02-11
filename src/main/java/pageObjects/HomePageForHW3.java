@@ -2,6 +2,7 @@ package pageObjects;
 
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -75,24 +76,30 @@ public class HomePageForHW3 {
     @FindBy(className = "footer-bg")
             private WebElement footer;
 
+    @Step("Open Home Page")
     public void openHomePage(String s){
         driver.navigate().to(s);
     }
 
+    @Step("Login to Home Page")
     public void login(List<String> s){
         profileButton.click();
         loginName.sendKeys(s.get(0));
         password.sendKeys(s.get(1));
         submit.click();
     }
+
+    @Step("Check Title Home page")
     public void checkTitle(WebDriver driver, String title){
         Assert.assertEquals(driver.getTitle(),title);
     }
 
+    @Step("Check user Name Home Page")
     public void checkUserName(String UserName){
         Assert.assertEquals(userName.getText(), UserName);
     }
 
+    @Step("Check Header elements")
     public void checkHeader(List<String> s){
         Assert.assertEquals(home.getText(), s.get(0));
         Assert.assertEquals(contactForm.getText(), s.get(1));
@@ -100,6 +107,7 @@ public class HomePageForHW3 {
         Assert.assertEquals(metCol.getText(), s.get(3));
     }
 
+    @Step("Check Images on body Home Page is Dispalyed")
     public void checkImagesIsDisplayed(){
         Assert.assertTrue(practiseIcon.isDisplayed());
         Assert.assertTrue(customIcon.isDisplayed());
@@ -107,6 +115,7 @@ public class HomePageForHW3 {
         Assert.assertTrue(baseIcon.isDisplayed());
     }
 
+    @Step("Check element 'Index page' on Header HomePage ")
     public void checkIndexPage(List<String> s){
         Assert.assertEquals(elements.size(), 4);
         Assert.assertEquals(elements.get(0).getText(), s.get(0));
@@ -115,36 +124,44 @@ public class HomePageForHW3 {
         Assert.assertEquals(elements.get(3).getText(), s.get(3));
     }
 
+    @Step("Check main content of HomePage")
     public void checkMainContent(List<String> s){
         Assert.assertEquals(headerText.getText(), s.get(0));
         Assert.assertEquals(textCenter.getText(), s.get(1));
     }
 
+    @Step("Check IFrame")
     public void checkIframe(){
         Assert.assertTrue(iFrame.isDisplayed());
     }
 
+    @Step("Check IFrameLogo")
     public void checkIFrameLogo(WebDriver driver){
         driver.switchTo().frame(iFrame);
         Assert.assertTrue(iframeLogo.isDisplayed());
     }
 
+    @Step("Check SubHeaderText")
     public void checkSubHeaderText(String text){
         Assert.assertEquals(subHeaderText.getText(), text);
     }
 
+    @Step("Check Link on HomePage")
     public void checkLink(String attribute, String text){
         Assert.assertEquals(link.getAttribute(attribute), text);
     }
 
+    @Step("Check left section of HomePage")
     public void checkleftSection(){
         Assert.assertTrue(leftSection.isDisplayed());
     }
 
+    @Step("Check footer")
     public void checkfooter(){
         Assert.assertTrue(footer.isDisplayed());
     }
 
+    @Step("Close browser")
     public void close(){
         driver.close();
     }

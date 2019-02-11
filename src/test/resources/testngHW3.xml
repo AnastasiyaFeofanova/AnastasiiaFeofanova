@@ -1,0 +1,10 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Test Suite" verbose="1" parallel="true" thread-count="4">
+    <test name="Simple Test" >
+
+        <packages>
+            <package name="hw3"/>
+        </packages>
+    </test>
+</suite>

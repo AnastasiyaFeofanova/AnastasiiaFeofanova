@@ -9,9 +9,10 @@
     <version>1.0-SNAPSHOT</version>
 
     <properties>
-        <suiteXmlFile>testng.xml</suiteXmlFile>
+        <suiteXmlFile>testngHW3.xml</suiteXmlFile>
         <allure.version>2.6.0</allure.version>
         <aspectj.version>1.8.12</aspectj.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
     <dependencies>

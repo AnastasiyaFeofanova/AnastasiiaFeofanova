@@ -1,16 +1,24 @@
 package hw3;
 
 import base.SeleniumBase;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Flaky;
+import io.qameta.allure.Story;
+import listeners.AllureAttachmentListener;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import pageObjects.HomePageForHW3;
 
 import java.util.Arrays;
 import java.util.List;
 
+@Feature("Smoke tests")
+@Story("Home Page Testing")
+@Listeners(AllureAttachmentListener.class)
 public class HomeWork3 extends SeleniumBase {
 
     public static final String INDEX_HTML_URL = "https://epam.github.io/JDI/";
@@ -53,7 +61,9 @@ public class HomeWork3 extends SeleniumBase {
     public  void beforeClass() {
         driver = new ChromeDriver();
     }
-    @Test
+
+    @Flaky
+    @Test()
     public void pageObjectExample() {
         homePage= PageFactory.initElements(driver, HomePageForHW3.class);
         // open page
