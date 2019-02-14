@@ -1,31 +1,22 @@
-package hw4;
+package hw5;
 
 import base.SelenideTestBase;
-import com.codeborne.selenide.commands.Click;
 import enums.CheckBoxes;
 import enums.Colours;
 import enums.RadioButtons;
 import enums.Users;
 import io.qameta.allure.Feature;
+import io.qameta.allure.Flaky;
 import io.qameta.allure.Story;
 import listeners.AllureAttachmentListener;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.PageFactory;
-import org.testng.Assert;
 import org.testng.annotations.*;
 import pageObjects.HomePageSelenideForHW4;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.concurrent.TimeUnit;
+import static com.codeborne.selenide.Selenide.*;
 
-import static com.codeborne.selenide.Selenide.close;
-import static com.codeborne.selenide.Selenide.open;
-import static com.codeborne.selenide.Selenide.page;
-import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
-import static org.testng.Assert.assertEquals;
 @Feature("Smoke tests")
-@Story("Home Page and Service Page Testing - HW4")
+@Story("Home Page and Service Page Testing - HW5")
 @Listeners(AllureAttachmentListener.class)
 public class ServicePageInterfaceCheck extends SelenideTestBase {
 
@@ -51,6 +42,7 @@ public class ServicePageInterfaceCheck extends SelenideTestBase {
         close();
     }
 
+    @Flaky
     @Test
     public void homeWork4Test() {
         //2 assert  Browser Title
@@ -105,7 +97,7 @@ public class ServicePageInterfaceCheck extends SelenideTestBase {
         homePage.SelectCheckBoxes();
 
         //18 Assert that for each checkbox there is an individual log row and value is corresponded to the status of checkbox. 
-        homePage.ValidateCheckBoxStateOff(CheckBoxes.Water);
+        homePage.ValidateCheckBoxStateOnParam(CheckBoxes.Water);
         homePage.ValidateCheckBoxStateOff(CheckBoxes.Wind);
     }
 }

@@ -2,11 +2,11 @@ package hw4;
 
 import base.SelenideTestBase;
 import enums.Users;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Story;
+import listeners.AllureAttachmentListener;
 import org.openqa.selenium.WebDriver;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 import pageObjects.DatesPageSelenideForHW4;
 import pageObjects.HomePageSelenideForHW4;
 
@@ -15,6 +15,9 @@ import java.util.List;
 
 import static com.codeborne.selenide.Selenide.*;
 
+    @Feature("Smoke tests")
+    @Story("Dates Page Testing - HW4")
+    @Listeners(AllureAttachmentListener.class)
     public class DatesPageSlidersCheck extends SelenideTestBase {
 
     public static final String HOME_PAGE_TITLE = "Home Page";

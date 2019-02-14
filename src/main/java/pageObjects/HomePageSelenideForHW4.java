@@ -4,6 +4,7 @@ import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import enums.*;
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -100,6 +101,7 @@ public class HomePageSelenideForHW4 extends LoginHomePageSelenideForHW4{
     @FindBy(css = ".panel-body-list")
     public SelenideElement log;
 
+    @Step("Check Header Options")
     @Test
     public void CheckHeaderOptions(){
         serviceHeader.click();
@@ -110,6 +112,7 @@ public class HomePageSelenideForHW4 extends LoginHomePageSelenideForHW4{
         }
     }
 
+    @Step("Check SideBar options")
     @Test
     public void CheckSidebarOptions() {
         serviceSidebar.click();
@@ -120,6 +123,7 @@ public class HomePageSelenideForHW4 extends LoginHomePageSelenideForHW4{
         }
     }
 
+    @Step("Go to link DiffrentElements")
     @Test
     public void LinkDifferentElementsInHeader(String text){
         serviceHeader.click();
@@ -127,6 +131,7 @@ public class HomePageSelenideForHW4 extends LoginHomePageSelenideForHW4{
         assertEquals(getWebDriver().getTitle(),text);
     }
 
+    @Step("Check Diffrerent Elements Page")
     @Test
     public void CheckDifferentElementsPageElements() {
         List<SelenideElement> sidebarDifferentElementsListElements = Arrays.asList(waterCheckBox, earthCheckBox, windCheckBox, fireCheckBox, goldCheckRadio, silverCheckRadio, bronzeCheckRadio, selenCheckRadio, colorsDropdown, defaultButton, button);
@@ -135,16 +140,19 @@ public class HomePageSelenideForHW4 extends LoginHomePageSelenideForHW4{
         }
     }
 
+    @Step("Check Right Panel on Different Elements Page (is displayed)")
     @Test
     public void CheckRightPanelOnDifferentElementsPage(){
         rightPanelOnDifferentElementsPage.isDisplayed();
     }
 
+    @Step("Check Left Panel on Different Elements Page (is displayed)")
     @Test
     public void CheckLeftPanelOnDifferentElementsPage(){
         leftPanelOnDifferentElementsPage.isDisplayed();
     }
 
+    @Step("Select water&wind checkboxes")
     @Test
     public void SelectCheckBoxes() {
         waterCheckBox.click();
@@ -161,23 +169,27 @@ public class HomePageSelenideForHW4 extends LoginHomePageSelenideForHW4{
         return true;
     }
 
+    @Step("Validate checkboxes on")
     @Test
     public void ValidateCheckBoxStateOnParam(CheckBoxes value) {
         List<WebElement> logStrings = log.findElements(By.tagName("li"));
         Assert.assertTrue(validateLogStrings(logStrings, value.name(), "true"));
     }
 
+    @Step("Select selen radiobox")
     @Test
     public void SelectRadioBoxes(){
         selenCheckRadio.click();
     }
 
+    @Step("Validate radioboxes on")
     @Test
     public void ValidateRadioButtonsStateOn(RadioButtons values) {
         List<WebElement> logStrings = log.findElements(By.tagName("li"));
         Assert.assertTrue(validateLogStrings(logStrings, values.name(), "metal"));
     }
 
+    @Step("Select yellow color")
     @Test
     public void SelectYellowInDropdown(){
         colorsDropdown.click();
@@ -205,12 +217,14 @@ public class HomePageSelenideForHW4 extends LoginHomePageSelenideForHW4{
 //        return null;
 //    }
 
+    @Step("Validate colors log")
     @Test
     public void ValidateColorsParam(Colours value) {
         List<WebElement> logStrings = log.findElements(By.tagName("li"));
         Assert.assertTrue(validateLogStrings(logStrings, value.name(), "Colors"));
     }
 
+    @Step("Validate checkbox off")
     @Test
     public void ValidateCheckBoxStateOff(CheckBoxes value) {
         List<WebElement> logStrings = log.findElements(By.tagName("li"));
