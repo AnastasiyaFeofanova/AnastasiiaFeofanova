@@ -18,6 +18,9 @@ import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
+// TODO Code convention, methods naming...
+// TODO This is NOT the home page !!
+// TODO You have quite long method names, it will be better to simplify it
 public class HomePageSelenideForHW4 extends LoginHomePageSelenideForHW4{
 
     @FindBy(css = "li[class = 'dropdown'] a[class = 'dropdown-toggle']")
@@ -43,6 +46,10 @@ public class HomePageSelenideForHW4 extends LoginHomePageSelenideForHW4{
     @FindBy(linkText = "PERFORMANCE")
     private SelenideElement headerPerformance;
 
+    /*
+    TODO In genera it is not the best idea to create PO in this way, with indexes
+    Take a look on ElementsCollection
+     */
     @FindBy(css = "a[ui='label']")
     private SelenideElement serviceSidebar;
     @FindBy(css = "li.menu-title[index='3']")
@@ -92,6 +99,7 @@ public class HomePageSelenideForHW4 extends LoginHomePageSelenideForHW4{
     @FindBy(css = "input[type='button']")
     private SelenideElement button;
 
+    // TODO This locator can be improved
     @FindBy(css = ".uui-side-bar right-fix-panel mCustomScrollbar _mCS_2 mCS_no_scrollbar")
     public SelenideElement rightPanelOnDifferentElementsPage;
     @FindBy(css = ".navigation-sidebar")
@@ -102,10 +110,10 @@ public class HomePageSelenideForHW4 extends LoginHomePageSelenideForHW4{
     public SelenideElement log;
 
     @Step("Check Header Options")
-    @Test
     public void CheckHeaderOptions(){
         serviceHeader.click();
         headerSupport.should(Condition.exist);
+        // TODO Code convention, line length
         List<SelenideElement> headerSupportOptions = Arrays.asList(headerSupport, headerDates, headerComplexTable, headerSimpleTable, headerUserTable, headerTableWithPages, headerDifferentElements, headerPerformance);
         for (SelenideElement element:headerSupportOptions) {
             element.should(Condition.exist);
@@ -113,7 +121,6 @@ public class HomePageSelenideForHW4 extends LoginHomePageSelenideForHW4{
     }
 
     @Step("Check SideBar options")
-    @Test
     public void CheckSidebarOptions() {
         serviceSidebar.click();
         sidebarServiceOptions.should(Condition.exist);
@@ -124,7 +131,6 @@ public class HomePageSelenideForHW4 extends LoginHomePageSelenideForHW4{
     }
 
     @Step("Go to link DiffrentElements")
-    @Test
     public void LinkDifferentElementsInHeader(String text){
         serviceHeader.click();
         headerDifferentElements.click();
@@ -132,7 +138,6 @@ public class HomePageSelenideForHW4 extends LoginHomePageSelenideForHW4{
     }
 
     @Step("Check Diffrerent Elements Page")
-    @Test
     public void CheckDifferentElementsPageElements() {
         List<SelenideElement> sidebarDifferentElementsListElements = Arrays.asList(waterCheckBox, earthCheckBox, windCheckBox, fireCheckBox, goldCheckRadio, silverCheckRadio, bronzeCheckRadio, selenCheckRadio, colorsDropdown, defaultButton, button);
         for (SelenideElement element:sidebarDifferentElementsListElements) {
@@ -141,24 +146,23 @@ public class HomePageSelenideForHW4 extends LoginHomePageSelenideForHW4{
     }
 
     @Step("Check Right Panel on Different Elements Page (is displayed)")
-    @Test
     public void CheckRightPanelOnDifferentElementsPage(){
         rightPanelOnDifferentElementsPage.isDisplayed();
     }
 
     @Step("Check Left Panel on Different Elements Page (is displayed)")
-    @Test
     public void CheckLeftPanelOnDifferentElementsPage(){
         leftPanelOnDifferentElementsPage.isDisplayed();
     }
 
+    // TODO This method should be parametrised
     @Step("Select water&wind checkboxes")
-    @Test
     public void SelectCheckBoxes() {
         waterCheckBox.click();
         windCheckBox.click();
     }
 
+    // TODO It is not make scense to create methods like this in OP. Utils, for the example
     boolean validateLogStrings(final List<WebElement> strings, final String name, final String expectedValue) {
         for(WebElement s : strings) {
             String text = s.getText();
@@ -170,27 +174,25 @@ public class HomePageSelenideForHW4 extends LoginHomePageSelenideForHW4{
     }
 
     @Step("Validate checkboxes on")
-    @Test
     public void ValidateCheckBoxStateOnParam(CheckBoxes value) {
+        // TODO You should not find elements in PO method
         List<WebElement> logStrings = log.findElements(By.tagName("li"));
         Assert.assertTrue(validateLogStrings(logStrings, value.name(), "true"));
     }
 
     @Step("Select selen radiobox")
-    @Test
     public void SelectRadioBoxes(){
         selenCheckRadio.click();
     }
 
     @Step("Validate radioboxes on")
-    @Test
     public void ValidateRadioButtonsStateOn(RadioButtons values) {
         List<WebElement> logStrings = log.findElements(By.tagName("li"));
         Assert.assertTrue(validateLogStrings(logStrings, values.name(), "metal"));
     }
 
+    // TODO This method should be parametrised
     @Step("Select yellow color")
-    @Test
     public void SelectYellowInDropdown(){
         colorsDropdown.click();
 
@@ -201,7 +203,7 @@ public class HomePageSelenideForHW4 extends LoginHomePageSelenideForHW4{
         }
     }
 
-//    @Test
+// TODO You should not live comments like this
 //    public void ValidateColors() {
 //        List<WebElement> logStrings = log.findElements(By.tagName("li"));
 //        Assert.assertTrue(validateLogStrings(logStrings, checkedColor(colorsDropdown.findElements(By.tagName("option"))), "Colors"));
@@ -218,14 +220,14 @@ public class HomePageSelenideForHW4 extends LoginHomePageSelenideForHW4{
 //    }
 
     @Step("Validate colors log")
-    @Test
     public void ValidateColorsParam(Colours value) {
         List<WebElement> logStrings = log.findElements(By.tagName("li"));
+        // TODO Quite uncommon approach, you can do it easily with ElementsCollection
+        // TODO Just generate the expected string and check that log contains it
         Assert.assertTrue(validateLogStrings(logStrings, value.name(), "Colors"));
     }
 
     @Step("Validate checkbox off")
-    @Test
     public void ValidateCheckBoxStateOff(CheckBoxes value) {
         List<WebElement> logStrings = log.findElements(By.tagName("li"));
         Assert.assertTrue(validateLogStrings(logStrings, value.name(), "false"));
