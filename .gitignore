@@ -1,5 +1,6 @@
 # Created by .ignore support plugin (hsz.mobi)
-/AnastasiyaFeofanova.iml
+*.iml
+
 /.idea/
 target
 debug.log

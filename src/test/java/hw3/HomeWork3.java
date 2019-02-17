@@ -16,18 +16,24 @@ import pageObjects.HomePageForHW3;
 import java.util.Arrays;
 import java.util.List;
 
+// TODO Firefox browser opened after tests.
+// TODO Test should work in full screen mode.
 @Feature("Smoke tests")
 @Story("Home Page Testing")
 @Listeners(AllureAttachmentListener.class)
 public class HomeWork3 extends SeleniumBase {
 
-    public static final String INDEX_HTML_URL = "https://epam.github.io/JDI/";
-    public static final String HOME_PAGE_TITLE = "Home Page";
-    public static final String USER_NAME = "PITER CHAILOVSKII";
-    public static final String SUB_HEADER_TEXT = "JDI GITHUB";
-    public static final String GITHUB_URL = "https://github.com/epam/JDI";
-    public static final String LINK_ATTRIBUTE = "href";
+    private static final String INDEX_HTML_URL = "https://epam.github.io/JDI/";
+    private static final String HOME_PAGE_TITLE = "Home Page";
+    private static final String USER_NAME = "PITER CHAILOVSKII";
+    private static final String SUB_HEADER_TEXT = "JDI GITHUB";
+    private static final String GITHUB_URL = "https://github.com/epam/JDI";
+    private static final String LINK_ATTRIBUTE = "href";
 
+    // TODO Basically, this is quite common approach to store data in collections, but for 3 HW this is OK
+
+    // TODO It is not the mest idea to store user's data in collection.
+    // TODO Create class or enum for this purpose
     List<String> loginData = Arrays.asList("epam", "1234");
 
     List<String> homePageHeaderNavigationItems = Arrays.asList(
@@ -49,8 +55,8 @@ public class HomeWork3 extends SeleniumBase {
 
     List<String> mainContentTexts = Arrays.asList(
             "EPAM FRAMEWORK WISHES…",
-            "LOREM IPSUM DOLOR SIT AMET, CONSECTETUR ADIPISICING ELIT, SED DO EIUSMOD TEMPOR INCIDIDUNT UT "+
-                    "LABORE ET DOLORE MAGNA ALIQUA. UT ENIM AD MINIM VENIAM, QUIS NOSTRUD EXERCITATION ULLAMCO LABORIS NISI UT "+
+            "LOREM IPSUM DOLOR SIT AMET, CONSECTETUR ADIPISICING ELIT, SED DO EIUSMOD TEMPOR INCIDIDUNT UT " +
+                    "LABORE ET DOLORE MAGNA ALIQUA. UT ENIM AD MINIM VENIAM, QUIS NOSTRUD EXERCITATION ULLAMCO LABORIS NISI UT " +
                     "ALIQUIP EX EA COMMODO CONSEQUAT DUIS AUTE IRURE DOLOR IN REPREHENDERIT IN VOLUPTATE VELIT ESSE CILLUM DOLORE EU FUGIAT NULLA PARIATUR."
     );
 
@@ -58,14 +64,14 @@ public class HomeWork3 extends SeleniumBase {
     private HomePageForHW3 homePage;
 
     @BeforeClass
-    public  void beforeClass() {
+    public void beforeClass() {
         driver = new ChromeDriver();
+        homePage = PageFactory.initElements(driver, HomePageForHW3.class);
     }
 
     @Flaky
-    @Test()
+    @Test
     public void pageObjectExample() {
-        homePage= PageFactory.initElements(driver, HomePageForHW3.class);
         // open page
         homePage.openHomePage(INDEX_HTML_URL);
 
@@ -76,6 +82,7 @@ public class HomeWork3 extends SeleniumBase {
         homePage.checkUserName(USER_NAME);
 
         //5 Assert Browser title
+        // TODO You hsould not pass driver here, take a look on HomePage(WebDriver d) {...} constructor.
         homePage.checkTitle(driver, HOME_PAGE_TITLE);
 
         //6 Assert that there are 4 items on the header section are displayed and they have proper texts
@@ -100,7 +107,7 @@ public class HomeWork3 extends SeleniumBase {
         homePage.openHomePage(INDEX_HTML_URL);
 
 //        //13 Assert a text of the sub header
-         homePage.checkSubHeaderText(SUB_HEADER_TEXT);
+        homePage.checkSubHeaderText(SUB_HEADER_TEXT);
 
 //        //14 Assert that JDI GITHUB is a link and has a proper URL
         homePage.checkLink(LINK_ATTRIBUTE, GITHUB_URL);
