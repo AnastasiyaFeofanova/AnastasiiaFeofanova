@@ -33,6 +33,8 @@ public class ServicePageInterfaceCheck extends SelenideTestBase {
     public static final String DIFFERENT_ELEMENTS_PAGE_NAME = "Different Elements";
     public static final String HOME_PAGE_URL = "https://epam.github.io/JDI/";
     private HomePageSelenideForHW4 homePage;
+
+    // TODO ???
     private WebDriver driver;
 
     @BeforeClass

@@ -16,6 +16,7 @@ import java.security.SecureRandom;
 import java.util.Arrays;
 import java.util.List;
 
+// TODO Pay attention on code convention and useless imports.
 public class HomePageForHW3 {
 
     private WebDriver driver;
@@ -34,6 +35,9 @@ public class HomePageForHW3 {
     @FindBy(css = "#user-name")
     private WebElement userName;
 
+    // TODO It is not make sense to create locators for each items in menu
+    // TODO You can create just one locator in order to get List<WebElement>
+    // TODO This allows you to go through the collection and click on certain element
     @FindBy(css = "ul[class='uui-navigation nav navbar-nav m-l8'] a[href='index.html']")
     private WebElement home;
     @FindBy(css = "ul[class='uui-navigation nav navbar-nav m-l8'] a[href='contacts.html']")
@@ -115,9 +119,12 @@ public class HomePageForHW3 {
         Assert.assertTrue(baseIcon.isDisplayed());
     }
 
+    // TODO The agruments should be named with relation to in purpose
     @Step("Check element 'Index page' on Header HomePage ")
     public void checkIndexPage(List<String> s){
         Assert.assertEquals(elements.size(), 4);
+        // TODO This will be better with the loop or take a look on List::containsAll
+        // TODO Besides, you can compare collections via TestNg itself
         Assert.assertEquals(elements.get(0).getText(), s.get(0));
         Assert.assertEquals(elements.get(1).getText(), s.get(1));
         Assert.assertEquals(elements.get(2).getText(), s.get(2));
