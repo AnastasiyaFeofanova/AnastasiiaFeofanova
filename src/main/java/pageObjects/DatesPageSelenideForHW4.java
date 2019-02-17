@@ -59,13 +59,13 @@ public class DatesPageSelenideForHW4 extends LoginHomePageSelenideForHW4{
 
     @Test
     public void moveSlider(int _from, int _to){
-        double step = sliderLength.getSize().width;
+        int step = sliderLength.getSize().width;
         Actions move = new Actions(getWebDriver());
         System.out.println(step+"step");
         System.out.println(sliders.get(0).getText()+"from");
         System.out.println(sliders.get(1).getText()+"to");
-        move.clickAndHold(sliders.get(0)).moveToElement(sliderLength, (int) ((_from)/100*step) , 0).release().perform();
-        move.clickAndHold(sliders.get(1)).moveToElement(sliderLength, (int) ((_to/100)*step) , 0).release().perform();
+        move.clickAndHold(sliders.get(0)).moveToElement(sliderLength, (_from*step) , 0).release().perform();
+        move.clickAndHold(sliders.get(1)).moveToElement(sliderLength, (_to*step) , 0).release().perform();
     }
 
     @Test

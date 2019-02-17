@@ -39,7 +39,7 @@ public class HomePageSelenideForHW4 extends LoginHomePageSelenideForHW4{
     @FindBy(linkText = "TABLE WITH PAGES")
     private SelenideElement headerTableWithPages;
     @FindBy(linkText = "DIFFERENT ELEMENTS")
-    private SelenideElement headerDifferentElements;
+    public SelenideElement headerDifferentElements;
     @FindBy(linkText = "PERFORMANCE")
     private SelenideElement headerPerformance;
 

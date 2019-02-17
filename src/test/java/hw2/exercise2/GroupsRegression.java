@@ -1,6 +1,8 @@
 package hw2.exercise2;
 
 import base.SeleniumBase;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Story;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;

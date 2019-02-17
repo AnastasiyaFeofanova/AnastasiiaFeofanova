@@ -15,6 +15,8 @@ import static org.testng.Assert.assertEquals;
 
 public class SimpleTestForXML {
 
+    public static final String WISHES = "EPAM framework Wishes…";
+
     @BeforeClass
     public void beforeClass(){
         setProperty("webdriver.chrome.driver",
@@ -46,7 +48,7 @@ public class SimpleTestForXML {
 //        // Connect and check MainTitle
         WebElement mainTitle = driver.findElement(By.cssSelector("h3.main-title"));
 
-        assertEquals(mainTitle.getText(), "EPAM FRAMEWORK WISHES…");
+        assertEquals(mainTitle.getText(), WISHES.toUpperCase());
 
 //        SoftAssert softAssert = new SoftAssert();
 //        WebElement element = driver.findElement (By.id("submit-id"));
@@ -81,7 +83,7 @@ public class SimpleTestForXML {
 //        // Connect and check MainTitle
         WebElement mainTitle = driver.findElement(By.cssSelector("h3.main-title"));
 
-        assertEquals(mainTitle.getText(), "EPAM FRAMEWORK WISHES…");
+        assertEquals(mainTitle.getText(), WISHES.toUpperCase());
 
 //        SoftAssert softAssert = new SoftAssert();
 //        WebElement element = driver.findElement (By.id("submit-id"));
@@ -115,7 +117,7 @@ public class SimpleTestForXML {
 //        // Connect and check MainTitle
         WebElement mainTitle = driver.findElement(By.cssSelector("h3.main-title"));
 
-        assertEquals(mainTitle.getText(), "EPAM FRAMEWORK WISHES…");
+        assertEquals(mainTitle.getText(), WISHES.toUpperCase());
 
 //        SoftAssert softAssert = new SoftAssert();
 //        WebElement element = driver.findElement (By.id("submit-id"));

@@ -37,7 +37,7 @@ public class HomeWork3 extends SeleniumBase {
             "METALS & COLORS"
     );
 
-    List<String> textIndexPageUnderIcons = Arrays.asList(
+   public List<String> textIndexPageUnderIcons = Arrays.asList(
             "To include good practices\n" +
                     "and ideas from successful\n" +
                     "EPAM project",

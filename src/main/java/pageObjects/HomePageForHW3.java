@@ -2,6 +2,8 @@ package pageObjects;
 
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import enums.MainContentIndexPage;
+import enums.TextUnderIconsOnIndexPage;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -124,10 +126,25 @@ public class HomePageForHW3 {
         Assert.assertEquals(elements.get(3).getText(), s.get(3));
     }
 
+    @Step("Check element 'Index page' on Header HomePage ")
+    public void checkIndexPage(){
+        Assert.assertEquals(elements.size(), 4);
+        Assert.assertEquals(elements.get(0).getText(), TextUnderIconsOnIndexPage.first);
+        Assert.assertEquals(elements.get(1).getText(), TextUnderIconsOnIndexPage.second);
+        Assert.assertEquals(elements.get(2).getText(), TextUnderIconsOnIndexPage.third);
+        Assert.assertEquals(elements.get(3).getText(), TextUnderIconsOnIndexPage.fourth);
+    }
+
     @Step("Check main content of HomePage")
     public void checkMainContent(List<String> s){
         Assert.assertEquals(headerText.getText(), s.get(0));
         Assert.assertEquals(textCenter.getText(), s.get(1));
+    }
+
+    @Step("Check main content of HomePage")
+    public void checkMainContent(){
+        Assert.assertEquals(headerText.getText(), MainContentIndexPage.first);
+        Assert.assertEquals(textCenter.getText(), MainContentIndexPage.second);
     }
 
     @Step("Check IFrame")
