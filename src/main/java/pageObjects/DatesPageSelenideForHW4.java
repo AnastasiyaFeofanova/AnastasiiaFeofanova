@@ -22,10 +22,13 @@ import static org.testng.Assert.assertEquals;
 
 // TODO Code convention !!
 // TODO Take a look on Selenide assertions instead of TestNg one
-public class DatesPageSelenideForHW4 extends LoginHomePageSelenideForHW4{
+public class DatesPageSelenideForHW4 extends LoginHomePageSelenideForHW4 {
     // TODO What is the purpose of this variable and constructor in this particular PO ?
     private WebDriver driver;
-    public DatesPageSelenideForHW4(WebDriver driver){this.driver = driver;}
+
+    public DatesPageSelenideForHW4(WebDriver driver) {
+        this.driver = driver;
+    }
 
     @FindBy(css = "li[class = 'dropdown'] a[class = 'dropdown-toggle']")
     private SelenideElement serviceHeader;
@@ -49,20 +52,20 @@ public class DatesPageSelenideForHW4 extends LoginHomePageSelenideForHW4{
     private SelenideElement log;
 
     // TODO What is the reason of this constructor ?
-    public DatesPageSelenideForHW4(){
+    public DatesPageSelenideForHW4() {
         page(this);
     }
 
     @Test
-    public void openDatesPage(){
+    public void openDatesPage() {
         serviceHeader.click();
         headerDates.click();
     }
 
     boolean validateLogStrings(final List<WebElement> strings, final String name, final String expectedValue) {
-        for(WebElement s : strings) {
+        for (WebElement s : strings) {
             String text = s.getText();
-            if(text.contains(name)) {
+            if (text.contains(name)) {
                 return text.contains(expectedValue);
             }
         }
@@ -71,14 +74,14 @@ public class DatesPageSelenideForHW4 extends LoginHomePageSelenideForHW4{
 
     // TODO Take a look on java naming convention
     @Test
-    public void moveSlider(int _from, int _to){
+    public void moveSlider(int _from, int _to) {
         int step = sliderLength.getSize().width;
         Actions move = new Actions(getWebDriver());
-        System.out.println(step+"step");
-        System.out.println(sliders.get(0).getText()+"from");
-        System.out.println(sliders.get(1).getText()+"to");
-        move.clickAndHold(sliders.get(0)).moveToElement(sliderLength, (_from*step) , 0).release().perform();
-        move.clickAndHold(sliders.get(1)).moveToElement(sliderLength, (_to*step) , 0).release().perform();
+        System.out.println(step + "step");
+        System.out.println(sliders.get(0).getText() + "from");
+        System.out.println(sliders.get(1).getText() + "to");
+        move.clickAndHold(sliders.get(0)).moveToElement(sliderLength, (_from * step), 0).release().perform();
+        move.clickAndHold(sliders.get(1)).moveToElement(sliderLength, (_to * step), 0).release().perform();
     }
 
     // TODO Take a look on java naming convention
@@ -89,7 +92,7 @@ public class DatesPageSelenideForHW4 extends LoginHomePageSelenideForHW4{
     @Test
     public void ValidateSliderLog(String _from, String _to) {
         // TODO Basically, you should not find elements in PO method
-                List<WebElement> logStrings = log.findElements(By.tagName("li"));
+        List<WebElement> logStrings = log.findElements(By.tagName("li"));
         // TODO You have to check the log message only, take a look on Selenide ElementsCollection
         Assert.assertTrue(validateLogStrings(logStrings, sliders.get(0).innerText(), _from));
         Assert.assertTrue(validateLogStrings(logStrings, sliders.get(1).innerText(), _to));

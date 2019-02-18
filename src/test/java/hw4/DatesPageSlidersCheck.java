@@ -78,10 +78,5 @@ import static com.codeborne.selenide.Selenide.*;
 
         //12 Using drag-and-drop set Range sliders.
         datesPage.moveSlider(30, 70);
-
-        // TODO ???
-//        //13
-//        datesPage.moveSlider(30, 70);
-//        //datesPage.ValidateSliderLog("30", "70");
     }
 }

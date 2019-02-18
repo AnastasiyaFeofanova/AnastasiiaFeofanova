@@ -203,22 +203,6 @@ public class HomePageSelenideForHW4 extends LoginHomePageSelenideForHW4{
         }
     }
 
-// TODO You should not live comments like this
-//    public void ValidateColors() {
-//        List<WebElement> logStrings = log.findElements(By.tagName("li"));
-//        Assert.assertTrue(validateLogStrings(logStrings, checkedColor(colorsDropdown.findElements(By.tagName("option"))), "Colors"));
-//    }
-//
-//    String checkedColor (final List<WebElement> strings) {
-//        for(WebElement s : strings) {
-//            String text = s.getText();
-//            if(s.isSelected()) {
-//                return text;
-//            }
-//        }
-//        return null;
-//    }
-
     @Step("Validate colors log")
     public void ValidateColorsParam(Colours value) {
         List<WebElement> logStrings = log.findElements(By.tagName("li"));

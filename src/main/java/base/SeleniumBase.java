@@ -12,7 +12,7 @@ public abstract class SeleniumBase {
     private long time;
 
     @BeforeSuite(alwaysRun = true)
-    public void beforeSuite(){
+    public void beforeSuite() {
         setProperty("webdriver.chrome.driver",
                 "src\\main\\resources\\chromedriver.exe");
 //        setProperty("webdriver.gecko.driver",
@@ -23,8 +23,8 @@ public abstract class SeleniumBase {
     }
 
     @AfterSuite(alwaysRun = true)
-    public void afterSuite(){
-            System.out.println("Test framework worked: " + (currentTimeMillis()-time)/60+" c");
+    public void afterSuite() {
+        System.out.println("Test framework worked: " + (currentTimeMillis() - time) / 60 + " c");
 
     }
 }

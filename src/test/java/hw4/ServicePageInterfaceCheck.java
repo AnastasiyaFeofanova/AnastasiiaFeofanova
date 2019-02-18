@@ -24,6 +24,7 @@ import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.Selenide.page;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 import static org.testng.Assert.assertEquals;
+
 @Feature("Smoke tests")
 @Story("Home Page and Service Page Testing - HW4")
 @Listeners(AllureAttachmentListener.class)
@@ -33,9 +34,6 @@ public class ServicePageInterfaceCheck extends SelenideTestBase {
     public static final String DIFFERENT_ELEMENTS_PAGE_NAME = "Different Elements";
     public static final String HOME_PAGE_URL = "https://epam.github.io/JDI/";
     private HomePageSelenideForHW4 homePage;
-
-    // TODO ???
-    private WebDriver driver;
 
     @BeforeClass
     public void beforeClass() {
