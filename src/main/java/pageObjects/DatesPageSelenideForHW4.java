@@ -23,12 +23,6 @@ import static org.testng.Assert.assertEquals;
 // TODO Code convention !!
 // TODO Take a look on Selenide assertions instead of TestNg one
 public class DatesPageSelenideForHW4 extends LoginHomePageSelenideForHW4 {
-    // TODO What is the purpose of this variable and constructor in this particular PO ?
-    private WebDriver driver;
-
-    public DatesPageSelenideForHW4(WebDriver driver) {
-        this.driver = driver;
-    }
 
     @FindBy(css = "li[class = 'dropdown'] a[class = 'dropdown-toggle']")
     private SelenideElement serviceHeader;

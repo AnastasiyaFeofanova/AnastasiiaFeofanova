@@ -131,13 +131,6 @@
             </plugin>
 
         </plugins>
-        <!-- For using properties from pom -->
-        <resources>
-            <resource>
-                <directory>src/test/resources</directory>
-                <filtering>true</filtering>
-            </resource>
-        </resources>
     </build>
 
     <reporting>
@@ -150,4 +143,5 @@
             </plugin>
         </plugins>
     </reporting>
+
 </project>
