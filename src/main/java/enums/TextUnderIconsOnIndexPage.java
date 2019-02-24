@@ -1,5 +1,8 @@
 package enums;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public enum  TextUnderIconsOnIndexPage {
     first("To include good practices\n" +
             "and ideas from successful\n" +
@@ -14,10 +17,11 @@ public enum  TextUnderIconsOnIndexPage {
         this.values=values;
     }
 
-    public String textUnderIconsOnIndexPage(){
+    public static List<String> getTextUnderIconsOnIndexPage(){
+        List<String> texts = new ArrayList<>();
         for (TextUnderIconsOnIndexPage s:TextUnderIconsOnIndexPage.values()) {
-            return s.values;
+            texts.add(s.values);
         }
-        return null;
+        return texts;
     }
 }

@@ -1,17 +1,14 @@
 package hw5;
 
 import base.SelenideTestBase;
-import enums.CheckBoxes;
-import enums.Colours;
-import enums.RadioButtons;
-import enums.Users;
+import enums.*;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Flaky;
 import io.qameta.allure.Story;
 import listeners.AllureAttachmentListener;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.*;
-import pageObjects.HomePageSelenideForHW4;
+import pageObjects.DifferentElementsPageSelenideForHW4;
 
 import static com.codeborne.selenide.Selenide.*;
 
@@ -23,12 +20,12 @@ public class ServicePageInterfaceCheck extends SelenideTestBase {
     public static final String HOME_PAGE_TITLE = "Home Page";
     public static final String DIFFERENT_ELEMENTS_PAGE_NAME = "Different Elements";
     public static final String HOME_PAGE_URL = "https://epam.github.io/JDI/";
-    private HomePageSelenideForHW4 homePage;
+    private DifferentElementsPageSelenideForHW4 homePage;
     private WebDriver driver;
 
     @BeforeClass
     public void beforeClass() {
-        homePage = page(HomePageSelenideForHW4.class);
+        homePage = page(DifferentElementsPageSelenideForHW4.class);
     }
 
     @BeforeMethod
@@ -52,52 +49,52 @@ public class ServicePageInterfaceCheck extends SelenideTestBase {
         homePage.login(Users.PITER);
 
         //4 Assert User Name
-        homePage.CheckUserName(Users.PITER);
+        homePage.checkUserName(Users.PITER);
 
 //        5 Click on Service subcategory in the header and check that drop down contains options
-        homePage.CheckHeaderOptions();
+        homePage.checkHeaderOptions();
 
 //        6 Click on Service subcategory in the left section and check that drop down contains options
-        homePage.CheckSidebarOptions();
+        homePage.checkSidebarOptions();
 
         //7 Open through the header menu Service -> Different El Page
-        homePage.LinkDifferentElementsInHeader(DIFFERENT_ELEMENTS_PAGE_NAME);
+        homePage.linkDifferentElementsInHeader(DIFFERENT_ELEMENTS_PAGE_NAME);
 
         //8 Check interface on Different elements Page, it contains all needed elements
-        homePage.CheckDifferentElementsPageElements();
+        homePage.checkDifferentElementsPageElements();
 
         //9 Assert that there is Right Section
-        homePage.CheckRightPanelOnDifferentElementsPage();
+        homePage.checkRightPanelOnDifferentElementsPage();
 //
         //10 Assert that there is Left Section
-        homePage.CheckLeftPanelOnDifferentElementsPage();
+        homePage.checkLeftPanelOnDifferentElementsPage();
 
         //11 Select checkboxes
-        homePage.SelectCheckBoxes();
+        homePage.selectCheckBoxes(CheckBoxes.CHECK_BOXES.water);
+        homePage.selectCheckBoxes(CheckBoxes.CHECK_BOXES.wind);
 
         //12 Assert that for each checkbox there is an individual log row and value is corresponded to the status of checkbox. 
-        //homePage.ValidateCheckBoxStateOn();
-        homePage.ValidateCheckBoxStateOnParam(CheckBoxes.Water);
-        homePage.ValidateCheckBoxStateOnParam(CheckBoxes.Wind);
+        homePage.validateLogState(LogCheckAndRadioBoxes.WATER_ON.parameter);
+        homePage.validateLogState(LogCheckAndRadioBoxes.WIND_ON.parameter);
 
         //13 Select radio
-        homePage.SelectRadioBoxes();
-
-        //14 Assert that for radiobutton there is a log row and value is corresponded to the status of radiobutton. 
-        homePage.ValidateRadioButtonsStateOn(RadioButtons.Selen);
-        homePage.ValidateRadioButtonsStateOn(RadioButtons.Silver);
-
+        homePage.selectRadioBoxes(RadioButtons.RADIO_BOXES.selen);
+//
+//      //14 Assert that for radiobutton there is a log row and value is corresponded to the status of radiobutton. 
+        homePage.validateLogState(LogCheckAndRadioBoxes.SELEN_ON.parameter);
+//
         //15 Select in dropdown
-        homePage.SelectYellowInDropdown();
-
-        //16 Assert that for dropdown there is a log row and value is corresponded to the selected value. 
-        homePage.ValidateColorsParam(Colours.Yellow);
-
-        //17 Unselect and assert checkboxes
-        homePage.SelectCheckBoxes();
-
-        //18 Assert that for each checkbox there is an individual log row and value is corresponded to the status of checkbox. 
-        homePage.ValidateCheckBoxStateOnParam(CheckBoxes.Water);
-        homePage.ValidateCheckBoxStateOff(CheckBoxes.Wind);
+        homePage.selectYellowInDropdown(Colours.Yellow);
+//
+//      //16 Assert that for dropdown there is a log row and value is corresponded to the selected value. 
+        homePage.validateLogState(LogCheckAndRadioBoxes.YELOW_ON.parameter);
+//
+//        //17 Unselect and assert checkboxes
+        homePage.selectCheckBoxes(CheckBoxes.CHECK_BOXES.water);
+        homePage.selectCheckBoxes(CheckBoxes.CHECK_BOXES.wind);
+//
+//        //18 Assert that for each checkbox there is an individual log row and value is corresponded to the status of checkbox. 
+        homePage.validateLogState(LogCheckAndRadioBoxes.WATER_OFF.parameter);
+        homePage.validateLogState(LogCheckAndRadioBoxes.WIND_ON.parameter);
     }
 }

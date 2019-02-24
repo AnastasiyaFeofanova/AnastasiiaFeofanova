@@ -1,17 +1,12 @@
 package pageObjects;
 
-import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import enums.Users;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import java.util.Arrays;
-import java.util.List;
-
+import static com.codeborne.selenide.Selenide.page;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 import static org.testng.Assert.assertEquals;
 
@@ -30,9 +25,13 @@ public class LoginHomePageSelenideForHW4 {
     @FindBy(id = "user-name")
     private SelenideElement userName;
 
+    public LoginHomePageSelenideForHW4() {
+        page(this);
+    }
+
     @Test
-    public void checkMainTitle(String text){
-        assertEquals(getWebDriver().getTitle(),text);
+    public void checkMainTitle(String text) {
+        assertEquals(getWebDriver().getTitle(), text);
     }
 
     @Test
@@ -44,7 +43,7 @@ public class LoginHomePageSelenideForHW4 {
     }
 
     @Test
-    public void CheckUserName(Users user) {
+    public void checkUserName(Users user) {
         Assert.assertEquals(userName.getText(), user.userName);
     }
 }

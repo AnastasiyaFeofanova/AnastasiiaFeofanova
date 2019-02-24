@@ -15,10 +15,6 @@ public abstract class SeleniumBase {
     public void beforeSuite() {
         setProperty("webdriver.chrome.driver",
                 "src\\main\\resources\\chromedriver.exe");
-//        setProperty("webdriver.gecko.driver",
-//                "src\\main\\resources\\geckodriver.exe");
-//        setProperty("webdriver.edge.driver",
-//                "src\\main\\resources\\MicrosoftWebDriver.exe");
         time = currentTimeMillis();
     }
 

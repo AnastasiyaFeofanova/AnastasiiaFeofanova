@@ -1,0 +1,15 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Test Suite" verbose="1" parallel="methods" thread-count="3">
+
+    <test name="Simple Test" >
+        <groups>
+            <run>
+                <include name="Group1"/>
+            </run>
+        </groups>
+        <classes>
+            <class name = "lesson1.SimpleTestForXML"/>
+        </classes>
+    </test>
+</suite>

@@ -1,6 +1,9 @@
 package hw3;
 
 import base.SeleniumBase;
+import enums.HeaderOptions;
+import enums.TextUnderIconsOnIndexPage;
+import enums.Users;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Flaky;
 import io.qameta.allure.Story;
@@ -15,9 +18,8 @@ import pageObjects.HomePageForHW3;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
-// TODO Firefox browser opened after tests.
-// TODO Test should work in full screen mode.
 @Feature("Smoke tests")
 @Story("Home Page Testing")
 @Listeners(AllureAttachmentListener.class)
@@ -30,27 +32,11 @@ public class HomeWork3 extends SeleniumBase {
     private static final String GITHUB_URL = "https://github.com/epam/JDI";
     private static final String LINK_ATTRIBUTE = "href";
 
-    // TODO Basically, this is quite common approach to store data in collections, but for 3 HW this is OK
-
-    // TODO It is not the mest idea to store user's data in collection.
-    // TODO Create class or enum for this purpose
-    List<String> loginData = Arrays.asList("epam", "1234");
-
     List<String> homePageHeaderNavigationItems = Arrays.asList(
             "HOME",
             "CONTACT FORM",
             "SERVICE",
             "METALS & COLORS"
-    );
-
-   public List<String> textIndexPageUnderIcons = Arrays.asList(
-            "To include good practices\n" +
-                    "and ideas from successful\n" +
-                    "EPAM project",
-            "To be flexible and\n" +
-                    "customizable",
-            "To be multiplatform",
-            "Already have good base\n(about 20 internal and\nsome external projects),\nwish to get more…"
     );
 
     List<String> mainContentTexts = Arrays.asList(
@@ -66,6 +52,8 @@ public class HomeWork3 extends SeleniumBase {
     @BeforeClass
     public void beforeClass() {
         driver = new ChromeDriver();
+        driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         homePage = PageFactory.initElements(driver, HomePageForHW3.class);
     }
 
@@ -76,23 +64,23 @@ public class HomeWork3 extends SeleniumBase {
         homePage.openHomePage(INDEX_HTML_URL);
 
         //3 login
-        homePage.login(loginData);
+        homePage.login(Users.PITER);
 
         //4 Assert User name in the left-top side of screen that user is loggined
         homePage.checkUserName(USER_NAME);
 
         //5 Assert Browser title
-        // TODO You hsould not pass driver here, take a look on HomePage(WebDriver d) {...} constructor.
-        homePage.checkTitle(driver, HOME_PAGE_TITLE);
+        homePage.checkTitle(HOME_PAGE_TITLE);
 
         //6 Assert that there are 4 items on the header section are displayed and they have proper texts
-        homePage.checkHeader(homePageHeaderNavigationItems);
-//
+        //homePage.checkHeaderNavigation(homePageHeaderNavigationItems);
+        homePage.checkHeaderNavigation(HeaderOptions.getValues());
+
         //7 Assert that there are 4 images on the Index Page and they are displayed
-        homePage.checkImagesIsDisplayed();
+        homePage.checkIconsIsDisplayed();
 
         //8 Assert that there are 4 texts on the Index Page under icons and they have proper text
-        homePage.checkIndexPage(textIndexPageUnderIcons);
+        homePage.checkUnderIconsTextOnIndexPage(TextUnderIconsOnIndexPage.getTextUnderIconsOnIndexPage());
 
         //9 Assert a text of the main header
         homePage.checkMainContent(mainContentTexts);
@@ -116,7 +104,7 @@ public class HomeWork3 extends SeleniumBase {
         homePage.checkleftSection();
 
 //        //16 Assert that there is Footer
-        homePage.checkfooter();
+        homePage.checkFooter();
 
         //17 close
         homePage.close();

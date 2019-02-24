@@ -1,13 +1,20 @@
 package enums;
 
 public enum RadioButtons {
-    Gold("Gold"),
-    Silver("Silver"),
-    Bronze("Bronze"),
-    Selen("Selen");
 
-    String values;
-    RadioButtons(String values){
-        this.values = values;
+    RADIO_BOXES("Gold", "Silver", "Bronze", "Selen", "metal");
+    public String gold;
+    public String silver;
+    public String bronze;
+    public String selen;
+    public String on;
+
+    RadioButtons(String gold, String silver, String bronze, String selen, String on){
+        this.gold = gold;
+        this.silver = silver;
+        this.bronze = bronze;
+        this.selen = selen;
+        this.on = on;
     }
+
 }

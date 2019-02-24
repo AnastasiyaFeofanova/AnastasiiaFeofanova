@@ -4,7 +4,8 @@ public enum Colours {
     Red("red"),
     Green("Green"),
     Blue("Blue"),
-    Yellow("Yellow");
+    Yellow("Yellow"),
+    Selector("Colors");
 
     String values;
     Colours(String values){
