@@ -3,6 +3,12 @@
 <suite name="Test Suite" parallel="methods" thread-count="3" verbose="1" >
     <test name="Cucumber Test">
 
+        <!--TODO
+        cucumber.runtime.DuplicateStepDefinitionException:
+        Duplicate step definitions in lesson6.steps.ActionSteps.iLoginAsUserWithPassword(String,String)
+        in file:/C:/Users/dmitry_lebedev1/Documents/TA_19/AnastasiiaFeofanova/target/test-classes/ and
+        lesson6.steps.AssertionSteps.iLoginAsUserWithPassword(String,String) in file:AnastasiiaFeofanova/target/test-classes/
+        -->
         <classes>
             <class name="lesson6.CucumberTestngRunner"/>
         </classes>

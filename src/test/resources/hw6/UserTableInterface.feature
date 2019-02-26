@@ -1,5 +1,7 @@
 Feature: HomePageCheck
 
+  # TODO You should not duplicate Steps, try to reuse it
+  # TODO Same comments, take a look on the first scenario.
   Scenario: User Table Page test
 
     Given I am on "Home Page"
@@ -12,7 +14,6 @@ Feature: HomePageCheck
     And 6 Description images are displayed on Users Table on User Table Page
     And 6 Description texts under images are displayed on Users Table on User Table Page
     And 6 checkboxes are displayed on Users Table on User Table Page
-
     And User table contains following values:
       | Number | User             | Description                      |
       | 1      | Roman            | Wolverine                        |
@@ -21,15 +22,13 @@ Feature: HomePageCheck
       | 4      | Helen Bennett    | Captain America some description |
       | 5      | Yoshi Tannamuri  | Cyclope some description         |
       | 6      | Giovanni Rovelli | Hulk some description            |
-
     When I select 'vip' checkbox for "Sergey Ivan"
     Then 1 log row has "Vip: condition changed to true" text in log section
-
     When I click on dropdown in column Type for user Roman
     Then droplist contains values
-      | Admin                    |
-      | User                     |
-      | Manager                  |
+      | Admin   |
+      | User    |
+      | Manager |
 
 
 
