@@ -9,7 +9,9 @@ import org.testng.annotations.Test;
 
 import java.util.List;
 
+import static com.codeborne.selenide.CollectionCondition.*;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
+import static java.lang.String.*;
 
 public class DatesPageSelenideForHW4 extends LoginHomePageSelenideForHW4 {
 
@@ -19,13 +21,9 @@ public class DatesPageSelenideForHW4 extends LoginHomePageSelenideForHW4 {
     @FindBy(linkText = "DATES")
     private SelenideElement headerDates;
 
-    // TODO This locator can be improved
-    //div[class ='uui-slider blue range ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all'] > a
     @FindBy(css = "div:nth-child(4) > div:nth-child(2) > div > a")
     private List<SelenideElement> sliders;
 
-    // TODO This locator can be improved
-    //div[class= 'uui-slider blue range ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all']
     @FindBy(css = "div:nth-child(4) > div:nth-child(2) > div")
     private SelenideElement sliderLength;
 
@@ -43,19 +41,20 @@ public class DatesPageSelenideForHW4 extends LoginHomePageSelenideForHW4 {
     @Test
     public void moveSlider(int xFrom, int xTo) {
         int step = sliderLength.getSize().width;
-        Actions move = new Actions(getWebDriver());
-        System.out.println(step + "step");
-        System.out.println(sliders.get(0).getText() + "before from");
-        System.out.println(sliders.get(1).getText() + "before to");
-        move.clickAndHold(sliders.get(0)).moveToElement(sliderLength, (xFrom * step / 99), 0).release().perform();
-        move.clickAndHold(sliders.get(1)).moveToElement(sliderLength, (xTo * step / 99), 0).release().perform();
-        System.out.println(sliders.get(0).getText() + "after from");
-        System.out.println(sliders.get(1).getText() + "after to");
+        sliderAction(0, xFrom, step);
+        sliderAction(1, xTo, step);
+    }
+
+    private void sliderAction(int slider, int x, int step) {
+        new Actions(getWebDriver())
+                .clickAndHold(sliders.get(slider))
+                .moveToElement(sliderLength, (x * step / 99), 0).release()
+                .perform();
     }
 
     @Test
     public void validateSliderLog(int xFrom, int xTo) {
-        logs.shouldHave(CollectionCondition.textsInAnyOrder(sliders.get(0).innerText()), CollectionCondition.textsInAnyOrder(String.valueOf(xFrom)));
-        logs.shouldHave(CollectionCondition.textsInAnyOrder(sliders.get(1).innerText()), CollectionCondition.textsInAnyOrder(String.valueOf(xTo)));
+        logs.shouldHave(textsInAnyOrder(sliders.get(0).innerText()), textsInAnyOrder(valueOf(xFrom)));
+        logs.shouldHave(textsInAnyOrder(sliders.get(1).innerText()), textsInAnyOrder(valueOf(xTo)));
     }
 }

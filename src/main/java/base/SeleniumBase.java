@@ -6,7 +6,6 @@ import org.testng.annotations.BeforeSuite;
 import static java.lang.System.currentTimeMillis;
 import static java.lang.System.setProperty;
 
-// TODO Pay attention on code convention, reformat it via IDEA
 public abstract class SeleniumBase {
 
     private long time;
