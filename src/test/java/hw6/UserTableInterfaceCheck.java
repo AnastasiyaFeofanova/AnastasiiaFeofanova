@@ -1,26 +1,19 @@
 package hw6;
 
-import com.codeborne.selenide.SelenideElement;
+import cucumber.api.java.en.And;
 import pageObjects.utils.SuperHero;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
-import cucumber.api.java.en.And;
-import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import enums.*;
 import io.qameta.allure.Step;
 import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
-import pageObjects.HomePageForHW3;
-import pageObjects.DifferentElementsPageSelenideForHW4;
-import pageObjects.LoginHomePageSelenideForHW4;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.Selenide.page;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 import static org.testng.Assert.assertEquals;
@@ -52,33 +45,16 @@ public class UserTableInterfaceCheck {
         page(this);
     }
 
-    @Step("Open JDI Test Application - HomePage")
-    @Given("I am on \"Home Page\"")
-    public void openPage() {
-        open("https://epam.github.io/JDI/index.html");
-    }
-
-    @And("I login as user \"Piter Chailovskii\"")
-    public void IPerformLogin() {
-        new LoginHomePageSelenideForHW4().login(Users.PITER);
-    }
-
-    @When("I click on \"Service\" button in Header")
-    @Step("open \"Support\" on Header")
-    public void clickHeaderOptions() {
-        new DifferentElementsPageSelenideForHW4().checkHeaderOptions();
-    }
-
-    @And("I click on \"User Table\" button in Service dropdown")
+    @And("I click on \"([^\"]*)\" button in Service dropdown")
     @Step("Click \"User\" Table on Service dropdown")
-    public void clickUserTableLink() {
-        serviceDropdown.filter(Condition.text(ServiceDropdownOptions.userTable.values)).first().click();
+    public void clickUserTableLink(String s) {
+        serviceDropdown.filter(Condition.text(s)).first().click();
     }
 
-    @Then("\"User Table\" page is opened")
+    @Then("\"([^\"]*)\" page is opened")
     @Step("Check UserTable is opened")
-    public void checkUsertableIsOpened() {
-        assertEquals(getWebDriver().getTitle(), "User Table");
+    public void checkUsertableIsOpened(String s) {
+        assertEquals(getWebDriver().getTitle(), s);
     }
 
     @And("6 NumberType Dropdowns are displayed on Users Table on User Table Page")
@@ -151,7 +127,7 @@ public class UserTableInterfaceCheck {
 
     private List<String> getDropdownValues() {
         List<String> list = new ArrayList<>();
-        for (int i=0; i<3; i++) {
+        for (int i = 0; i < 3; i++) {
             list.add(dropdown.get(i).getValue());
         }
         return list;

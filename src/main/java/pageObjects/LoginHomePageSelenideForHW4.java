@@ -1,6 +1,7 @@
 package pageObjects;
 
 import com.codeborne.selenide.SelenideElement;
+import com.google.common.base.Enums;
 import enums.Users;
 import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;

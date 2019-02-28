@@ -3,6 +3,8 @@ package pageObjects;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
+import com.google.common.base.Enums;
+import enums.CheckBox;
 import io.qameta.allure.Step;
 import org.openqa.selenium.support.FindBy;
 
@@ -14,14 +16,20 @@ import static org.testng.Assert.assertEquals;
 
 public class DifferentElementsPageSelenideForHW4 extends LoginHomePageSelenideForHW4 {
 
+    @FindBy(css = "ul.uui-navigation.nav.navbar-nav.m-l8")
+    private ElementsCollection headerMenu;
     @FindBy(css = "li[class = 'dropdown'] a[class = 'dropdown-toggle']")
     private SelenideElement serviceHeader;
     @FindBy(css = ".dropdown-menu > li")
     private List<SelenideElement> headerServiceOptions;
+    @FindBy(css = ".dropdown-menu > li")
+    private ElementsCollection headerServiceOptionsCol;
 
     @FindBy(css = ".dropdown-menu > li:nth-child(7) > a")
     public SelenideElement headerDifferentElements;
 
+    @FindBy(css = ".sidebar-menu")
+    private ElementsCollection sidebarMenu;
     @FindBy(css = "a[ui='label']")
     private SelenideElement serviceSidebar;
 
@@ -68,6 +76,14 @@ public class DifferentElementsPageSelenideForHW4 extends LoginHomePageSelenideFo
         }
     }
 
+    @Step("Check Header Options")
+    public void checkHeaderOptions(String Service) {
+        headerMenu.filter(Condition.text(Service)).first().click();
+        for (SelenideElement element : headerServiceOptions) {
+            element.should(Condition.exist);
+        }
+    }
+
     @Step("Check SideBar options")
     public void checkSidebarOptions() {
         serviceSidebar.click();
@@ -76,10 +92,25 @@ public class DifferentElementsPageSelenideForHW4 extends LoginHomePageSelenideFo
         }
     }
 
+    @Step("Check SideBar options")
+    public void checkSidebarOptions(String s) {
+        sidebarMenu.filterBy(Condition.text(s)).first().click();
+        for (SelenideElement element : sidebarServiceOptions) {
+            element.should(Condition.exist);
+        }
+    }
+
+    @Step("Go to link DiffrentElements")
+    public void linkDifferentElementsInHeader(String Service, String text) {
+        headerMenu.filter(Condition.text(Service)).first().click();
+        headerServiceOptionsCol.filter(Condition.text(text)).first().click();
+        assertEquals(getWebDriver().getTitle(), text);
+    }
+
     @Step("Go to link DiffrentElements")
     public void linkDifferentElementsInHeader(String text) {
         serviceHeader.click();
-        headerDifferentElements.click();
+        headerServiceOptionsCol.filter(Condition.text(text)).first().click();
         assertEquals(getWebDriver().getTitle(), text);
     }
 
@@ -103,6 +134,11 @@ public class DifferentElementsPageSelenideForHW4 extends LoginHomePageSelenideFo
     @Step("Select checkboxes")
     public void selectCheckBoxes(String value) {
         checkBoxes.filter(Condition.text(value)).first().click();
+    }
+
+    @Step("Select checkboxes")
+    public void selectCheckBoxes(CheckBox box) {
+        checkBoxes.filter(Condition.text(box.toString())).first().click();
     }
 
     @Step("Select radioboxes")

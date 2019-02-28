@@ -1,7 +1,6 @@
 package enums;
 
 public enum CheckBoxes {
-
 CHECK_BOXES("Water", "Earth", "Wind", "Fire", "true", "false");
     public String water = "Water";
     public String earth = "Earth";

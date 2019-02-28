@@ -85,7 +85,7 @@ public class ServicePageInterfaceCheck extends SelenideTestBase {
         homePage.selectYellowInDropdown(Colours.Yellow);
 
 //      //16 Assert that for dropdown there is a log row and value is corresponded to the selected value. 
-        homePage.validateLogState(LogCheckAndRadioBoxes.YELOW_ON.parameter);
+        homePage.validateLogState(LogCheckAndRadioBoxes.YELLOW_ON.parameter);
 
 //        //17 Unselect and assert checkboxes
         homePage.selectCheckBoxes(CheckBoxes.CHECK_BOXES.water);

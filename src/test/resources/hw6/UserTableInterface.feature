@@ -1,12 +1,10 @@
 Feature: HomePageCheck
 
-  # TODO You should not duplicate Steps, try to reuse it
-  # TODO Same comments, take a look on the first scenario.
   Scenario: User Table Page test
 
-    Given I am on "Home Page"
-    And I login as user "Piter Chailovskii"
-    When I click on "Service" button in Header
+    Given I open EPAM JDI site
+    And I login as user Users.PITER
+    When Click on Service subcategory in the header and check that drop down contains options
     And I click on "User Table" button in Service dropdown
     Then "User Table" page is opened
     And 6 NumberType Dropdowns are displayed on Users Table on User Table Page

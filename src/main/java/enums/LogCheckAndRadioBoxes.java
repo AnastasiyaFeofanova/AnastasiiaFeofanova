@@ -6,7 +6,7 @@ public enum LogCheckAndRadioBoxes {
     WATER_OFF("Water: condition changed to false"),
     WIND_OFF("Wind: condition changed to false"),
     SELEN_ON("metal: value changed to Selen"),
-    YELOW_ON("Colors: value changed to Yellow");
+    YELLOW_ON("Colors: value changed to Yellow");
     public String parameter;
 
     LogCheckAndRadioBoxes(String parameter) {
