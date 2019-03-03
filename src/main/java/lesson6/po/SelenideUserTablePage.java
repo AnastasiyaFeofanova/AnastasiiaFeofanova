@@ -1,6 +1,6 @@
-package base.lesson6.po;
+package lesson6.po;
 
-import base.lesson6.SuperHero;
+import lesson6.SuperHero;
 import com.codeborne.selenide.ElementsCollection;
 import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;

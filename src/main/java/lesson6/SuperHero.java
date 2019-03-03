@@ -1,4 +1,4 @@
-package base.lesson6;
+package lesson6;
 //import lombok.AllArgsConstructor;
 //import lombok.EqualsAndHashCode;
 //import lombok.ToString;

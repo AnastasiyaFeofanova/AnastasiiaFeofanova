@@ -1,7 +1,7 @@
 package lesson6.steps;
 
-import base.lesson6.SuperHero;
-import base.lesson6.po.SelenideUserTablePage;
+import lesson6.SuperHero;
+import lesson6.po.SelenideUserTablePage;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.When;
 import pageObjects.HomePageSelenide;

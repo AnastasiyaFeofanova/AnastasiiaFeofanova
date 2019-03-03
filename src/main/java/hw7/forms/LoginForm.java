@@ -1,9 +1,9 @@
-package base.jdi.forms;
+package hw7.forms;
 
 import com.epam.jdi.light.elements.composite.Form;
 import com.epam.jdi.light.ui.html.common.Button;
-import org.openqa.selenium.support.FindBy;
 import com.epam.jdi.light.ui.html.common.TextField;
+import org.openqa.selenium.support.FindBy;
 
 public class LoginForm extends Form {
 

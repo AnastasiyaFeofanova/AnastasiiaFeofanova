@@ -9,7 +9,7 @@ public enum HeaderOptions {
     service("SERVICE"),
     metalsAndColors("METALS & COLORS");
 
-    String values;
+    public String values;
 
     HeaderOptions(String values){
         this.values = values;

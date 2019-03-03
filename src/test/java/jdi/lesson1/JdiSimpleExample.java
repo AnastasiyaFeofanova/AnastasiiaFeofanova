@@ -1,42 +1,42 @@
 package jdi.lesson1;
 
-import base.jdi.lesson1.JDISite;
-import base.jdi.lesson1.pages.IndexPageJdi;
+import base.jdi.JDISite;
 import com.epam.jdi.light.driver.WebDriverFactory;
 import com.epam.jdi.light.ui.html.PageFactory;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
 
-import static java.lang.System.setProperty;
+import static base.jdi.entities.User.PETER;
 
 public class JdiSimpleExample {
-
-//    IndexPageJdi indexPageJdi;
-//    private WebDriver driver;
-
+    //    WebDriver driver;
+//    IndexPage indexPageJdi;
     @BeforeSuite
     public void beforeSuite() {
-//        setProperty("webdriver.chrome.driver", "src\\main\\resources\\chromedriver.exe");
-//        driver = new ChromeDriver();
-//        driver.navigate().to("https://epam.github.io/JDI/index.html");
-//        indexPageJdi = PageFactory.initElements(driver, IndexPageJdi.class);
-        PageFactory.initElements(JDISite.class);
+        //LogLevels.
+        PageFactory.initElements((JDISite.class));
+        //indexPageJdi = PageFactory.initElements(driver, IndexPage.class);
+        // WebSettings.SEARCH_CONDITION = e
+
+        //ActionHelper.BEFORE_JDI_ACTION = jp -> {};
+
+//        ActionHelper.AFTER_JDI_ACTION = (jp, o) -> {
+//                return ActionHelper.AFTER_JDI_ACTION =
+//
+//        };
     }
 
     @Test
     public void simpleJdiTest() {
         JDISite.indexPageJdi.open();
-        JDISite.indexPageJdi.login("epam", "1234");
-//        indexPageJdi.login("epam", "1234");
+        JDISite.indexPageJdi.login(PETER);
+        //indexPageJdi.login("epam", "1234");
     }
 
     @AfterSuite
     public void afterSuite() {
         WebDriverFactory.close();
-//        driver.close();
     }
 
 }
