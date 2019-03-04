@@ -1,19 +1,12 @@
 package hw7.pages;
 
-import com.codeborne.selenide.Condition;
-import com.codeborne.selenide.ElementsCollection;
-import com.epam.jdi.light.elements.complex.UIList;
-import com.epam.jdi.light.elements.complex.UIList$AjcClosure1;
-import com.epam.jdi.light.ui.html.complex.Menu;
-import com.google.common.base.Enums;
-import enums.HeaderOptions;
-import hw7.Sections.Header;
-import hw7.entities.HeaderMenuNavigation;
-import hw7.forms.LoginForm;
 import com.epam.jdi.light.elements.base.UIElement;
 import com.epam.jdi.light.elements.composite.WebPage;
 import com.epam.jdi.light.ui.html.common.Icon;
+import hw7.Sections.Header;
+import hw7.entities.HeaderMenuNavigation;
 import hw7.entities.User;
+import hw7.forms.LoginForm;
 import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
 
