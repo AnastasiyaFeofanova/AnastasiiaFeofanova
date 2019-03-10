@@ -28,10 +28,7 @@ public class MetalsAndColorsForm extends Form {
             list = "li", expand = ".caret")
     public Droplist metals;
 
-    @JDropdown(
-            root = "#vegetables",
-            value = "#colors span.filter-option.pull-left",
-            list = "li", expand = ".caret")
+    @JDropdown(root = "#vegetables", value = "#salad-dropdown", list = "li", expand = ".caret")
     public Droplist vegetables;
 
     public void fillIn() {
@@ -44,9 +41,9 @@ public class MetalsAndColorsForm extends Form {
         natureElements.select(NatureElementsEnum.FIRE.value);
         colors.select(Colors.Red.value);
         metals.select(Metals.SELEN.value);
+        vegetables.select(vegetables.getSelected());
         vegetables.select(Vegetables.CUCUMBER.value);
         vegetables.select(Vegetables.TOMATO.value);
-        vegetables.select(Vegetables.VEGETABLES);
     }
 
 }
