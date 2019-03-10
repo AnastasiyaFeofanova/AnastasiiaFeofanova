@@ -1,13 +1,12 @@
-package hw7.forms;
+package hw8.forms;
 
 import com.epam.jdi.light.elements.complex.Droplist;
 import com.epam.jdi.light.elements.complex.WebList;
 import com.epam.jdi.light.elements.composite.Form;
 import com.epam.jdi.light.elements.pageobjects.annotations.objects.JDropdown;
 import com.epam.jdi.light.elements.pageobjects.annotations.simple.Css;
-import hw7.Sections.Summary;
-import hw7.entities.*;
-
+import hw8.MetalsColors;
+import hw8.Sections.Summary;
 
 public class MetalsAndColorsForm extends Form {
 
@@ -28,17 +27,16 @@ public class MetalsAndColorsForm extends Form {
             list = "li", expand = ".caret")
     public Droplist vegetables;
 
-    public void fillIn() {
-        summary.odds.select(SummaryEnum.ODDS_3.index);
-        summary.even.select(SummaryEnum.EVEN_8.index);
+    public void fillIn(MetalsColors metCol) {
+        summary.odds.select(metCol.getSummary().get(0));
+        summary.even.select(metCol.getSummary().get(1));
         summary.calculate.click();
-        natureElements.select(NatureElementsEnum.WATER);
-        natureElements.select(NatureElementsEnum.FIRE.value);
-        colors.select(Colors.Red.value);
-        metals.select(Metals.SELEN.value);
-        vegetables.select(vegetables.getSelected());
-        vegetables.select(Vegetables.CUCUMBER.value);
-        vegetables.select(Vegetables.TOMATO.value);
+        metCol.getElements().forEach(natureElements::select);
+        colors.select(metCol.getColor());
+        metals.select(metCol.getMetals());
+        for (String s : vegetables.getSelected().split(" ")) {
+            vegetables.select(s);
+        }
+        metCol.getVegetables().forEach(vegetables::select);
     }
-
 }

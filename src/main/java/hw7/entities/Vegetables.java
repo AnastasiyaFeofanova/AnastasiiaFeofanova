@@ -1,5 +1,11 @@
 package hw7.entities;
 
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public enum Vegetables {
 
     CUCUMBER("Cucumber"),
