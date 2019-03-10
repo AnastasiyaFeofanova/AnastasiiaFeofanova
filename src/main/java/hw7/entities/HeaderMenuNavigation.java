@@ -2,6 +2,7 @@ package hw7.entities;
 
 public enum HeaderMenuNavigation {
 
+    // TODO Java code convention is crying :`(
     home("HOME"),
     contactForme("CONTACT FORM"),
     service("SERVICE"),

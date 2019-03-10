@@ -12,14 +12,15 @@ public class MetalsAndColorsPage extends WebPage {
     @Css("#submit-button")
     public Button submit;
 
-    public void fillForm(){
+    public void fillForm() {
         metalsAndColorsForm.fillIn();
     }
 
-    public void submit(){
+    public void submit() {
         submit.click();
     }
-    public void checkResults(){
+
+    public void checkResults() {
         result.checkResults();
-    };
+    }
 }
