@@ -27,7 +27,7 @@ public class MetalsAndColorsFormFill {
     }
 
     @Test(dataProvider = "HW8DP", dataProviderClass = HW8DataProvider.class)
-    public void metalsAndColorsFormFill(String key, MetalsColors parameters) {
+    public void metalsAndColorsFormFill(String key, MetalsColors metalsColors) {
 
         // 1. Login on JDI site as User
         Site.indexPage.open();
@@ -38,13 +38,14 @@ public class MetalsAndColorsFormFill {
         Site.indexPage.linkMetalsAndColors(HeaderMenuNavigation.METALS_AND_COLORS);
 
         //3 Fill form Metals & Colors by data
-        Site.metalsAndColorsPage.fillForm(parameters);
+        Site.metalsAndColorsPage.fillForm(metalsColors);
 
         //4. Submit form Metals & Colors
         Site.metalsAndColorsPage.submit();
 
         //5. Result sections should contains data
+        // TODO What is this ?
         Results results = new Results();
-        Site.metalsAndColorsPage.checkResults(parameters);
+        Site.metalsAndColorsPage.checkResults(metalsColors);
     }
 }

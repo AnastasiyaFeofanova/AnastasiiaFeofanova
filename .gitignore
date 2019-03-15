@@ -5,4 +5,5 @@
 target
 debug.log
 desctop.ini
-# TODO allure ?
+# TODO allure ? x2
+allure-results/
