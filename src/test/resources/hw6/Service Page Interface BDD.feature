@@ -1,3 +1,4 @@
+@ServicePagInterfaceBDD
 Feature: HomePageCheck
 
   Scenario: Service Page Interface BDD

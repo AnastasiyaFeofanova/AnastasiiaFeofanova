@@ -12,9 +12,9 @@ import org.testng.Assert;
 
 public class IndexPage extends WebPage {
 
-    LoginForm loginForm;
-    MetalsAndColorsPage metalsAndColorsPage;
-    Header header;
+    private LoginForm loginForm;
+    private MetalsAndColorsPage metalsAndColorsPage;
+    private Header header;
 
     @FindBy(css = "[id='user-icon']")
     private Icon loginIcon;

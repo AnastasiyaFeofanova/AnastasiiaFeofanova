@@ -35,7 +35,7 @@ public class MetalsAndColorsFormFill {
         Site.indexPage.checkUserName(PITER);
 
         //2. Open Metals & Colors page by Header menu
-        Site.indexPage.linkMetalsAndColors(HeaderMenuNavigation.metalsAndColors);
+        Site.indexPage.linkMetalsAndColors(HeaderMenuNavigation.METALS_AND_COLORS);
 
         //3 Fill form Metals & Colors by data
         Site.metalsAndColorsPage.fillForm(parameters);

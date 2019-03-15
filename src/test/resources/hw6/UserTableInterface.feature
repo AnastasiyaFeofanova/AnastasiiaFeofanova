@@ -1,3 +1,4 @@
+@UserTablePageTest
 Feature: HomePageCheck
 
   Scenario: User Table Page test
