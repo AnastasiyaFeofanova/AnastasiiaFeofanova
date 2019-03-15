@@ -1,8 +1,8 @@
 package hw8;
 
 import com.epam.jdi.light.ui.html.PageFactory;
-import hw7.Site;
-import hw7.entities.HeaderMenuNavigation;
+import hw8.entities.HeaderMenuNavigation;
+import hw8.entities.Results;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
@@ -10,7 +10,7 @@ import org.testng.annotations.Test;
 import java.io.FileNotFoundException;
 
 import static com.epam.jdi.light.driver.WebDriverFactory.close;
-import static hw7.entities.User.PITER;
+import static hw8.entities.User.PITER;
 
 public class MetalsAndColorsFormFill {
     public MetalsAndColorsFormFill() throws FileNotFoundException {
@@ -38,12 +38,13 @@ public class MetalsAndColorsFormFill {
         Site.indexPage.linkMetalsAndColors(HeaderMenuNavigation.metalsAndColors);
 
         //3 Fill form Metals & Colors by data
-        Site.metalsAndColorsPage.fillForm();
+        Site.metalsAndColorsPage.fillForm(parameters);
 
         //4. Submit form Metals & Colors
         Site.metalsAndColorsPage.submit();
 
         //5. Result sections should contains data
-        Site.metalsAndColorsPage.checkResults();
+        Results results = new Results();
+        Site.metalsAndColorsPage.checkResults(parameters);
     }
 }

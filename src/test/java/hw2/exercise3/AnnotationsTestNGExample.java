@@ -52,7 +52,7 @@ public class AnnotationsTestNGExample extends SeleniumBase {
         System.out.println("Test framework worked: " + (currentTimeMillis() - time) / 60 + " c");
     }
 
-    @Test(dataProvider = "exercise1DataProvider", dataProviderClass = Exercise1DataProvider.class, groups = "Ex3")
+    @Test(dataProvider = "exersise1DataProvider", dataProviderClass = Exercise1DataProvider.class, groups = "Ex3")
     public void annotationsTestNGExample(int i, String s) {
 
         // Navigate

@@ -11,13 +11,13 @@ public enum HeaderOptions {
 
     public String values;
 
-    HeaderOptions(String values){
+    HeaderOptions(String values) {
         this.values = values;
     }
 
-    public static List<String> getValues(){
+    public static List<String> getValues() {
         List<String> links = new ArrayList<>();
-        for (HeaderOptions i:HeaderOptions.values()) {
+        for (HeaderOptions i : HeaderOptions.values()) {
             links.add(i.values);
         }
         return links;

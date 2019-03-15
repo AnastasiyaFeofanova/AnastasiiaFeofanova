@@ -4,7 +4,7 @@ import org.testng.annotations.DataProvider;
 
 public class Exercise1DataProvider {
     @DataProvider
-    public Object[][] exersise1DataProvider(){
+    public static Object[][] exersise1DataProvider(){
         return new Object[][]{
                 {0, "To include good practices\n" +
                         "and ideas from successful\n" +

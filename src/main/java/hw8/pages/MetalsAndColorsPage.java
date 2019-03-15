@@ -8,8 +8,8 @@ import hw8.Sections.Result;
 import hw8.forms.MetalsAndColorsForm;
 
 public class MetalsAndColorsPage extends WebPage {
-    MetalsAndColorsForm metalsAndColorsForm;
-    Result result;
+    private MetalsAndColorsForm metalsAndColorsForm;
+    private Result result;
     @Css("#submit-button")
     public Button submit;
 
@@ -20,7 +20,7 @@ public class MetalsAndColorsPage extends WebPage {
     public void submit(){
         submit.click();
     }
-    public void checkResults(){
-        result.checkResults();
+    public void checkResults(MetalsColors values){
+        result.checkResults(values);
     };
 }

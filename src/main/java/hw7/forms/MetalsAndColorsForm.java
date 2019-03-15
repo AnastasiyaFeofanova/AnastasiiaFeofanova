@@ -8,13 +8,12 @@ import com.epam.jdi.light.elements.pageobjects.annotations.simple.Css;
 import hw7.Sections.Summary;
 import hw7.entities.*;
 
-// TODO This class should be parametrise by Entity, take a look on Login form from classwork.
-public class MetalsAndColorsForm extends Form {
+public class MetalsAndColorsForm extends Form<MetalsColorsData>{
 
-    Summary summary;
+    private Summary summary;
 
     @Css("#elements-checklist p")
-    public WebList natureElements;
+    private WebList natureElements;
 
     @JDropdown(
             root = "div#colors",
@@ -31,19 +30,14 @@ public class MetalsAndColorsForm extends Form {
     @JDropdown(root = "#vegetables", value = "#salad-dropdown", list = "li", expand = ".caret")
     public Droplist vegetables;
 
-    public void fillIn() {
-        // TODO Pay attention on IDEA warning !!
-        summary.odds.select(SummaryEnum.ODDS_3.index);
-        summary.even.select(SummaryEnum.EVEN_8.index);
-        // TODO Where did you find this action in test script ?
-        summary.calculate.click();
-        natureElements.select(NatureElementsEnum.WATER);
-        natureElements.select(NatureElementsEnum.FIRE.value);
-        colors.select(Colors.Red.value);
-        metals.select(Metals.SELEN.value);
+    public void fillIn(MetalsColorsData data) {
+        System.out.println(data.summary);
+        Summary.odds.select(data.summary.get(0));
+        Summary.even.select(data.summary.get(1));
+        data.elements.forEach(natureElements::select);
+        colors.select(data.color);
+        metals.select(data.metals);
         vegetables.select(vegetables.getSelected());
-        vegetables.select(Vegetables.CUCUMBER.value);
-        vegetables.select(Vegetables.TOMATO.value);
+        data.vegetables.forEach(vegetables::select);
     }
-
 }

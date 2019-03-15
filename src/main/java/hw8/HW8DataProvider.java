@@ -16,6 +16,7 @@ public class HW8DataProvider {
             result[i][0] = keys[i];
             result[i][1] = values[i];
         }
+        System.out.println(result);
         return result;
-    }
+}
 }

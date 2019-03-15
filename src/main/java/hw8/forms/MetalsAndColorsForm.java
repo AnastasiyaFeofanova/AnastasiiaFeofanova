@@ -28,15 +28,15 @@ public class MetalsAndColorsForm extends Form {
     public Droplist vegetables;
 
     public void fillIn(MetalsColors metCol) {
-        summary.odds.select(metCol.getSummary().get(0));
-        summary.even.select(metCol.getSummary().get(1));
+        summary.odds.select(metCol.summary.get(0));
+        summary.even.select(metCol.summary.get(1));
         summary.calculate.click();
-        metCol.getElements().forEach(natureElements::select);
-        colors.select(metCol.getColor());
-        metals.select(metCol.getMetals());
+        metCol.elements.forEach(natureElements::select);
+        colors.select(metCol.color);
+        metals.select(metCol.metals);
         for (String s : vegetables.getSelected().split(" ")) {
             vegetables.select(s);
         }
-        metCol.getVegetables().forEach(vegetables::select);
+        metCol.vegetables.forEach(vegetables::select);
     }
 }

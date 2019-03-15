@@ -1,5 +1,7 @@
 package hw7.entities;
 
+import java.util.List;
+
 public enum NatureElementsEnum {
 
     WATER("Water"),
@@ -12,4 +14,5 @@ public enum NatureElementsEnum {
     NatureElementsEnum(String value){
         this.value = value;
     }
+
 }
