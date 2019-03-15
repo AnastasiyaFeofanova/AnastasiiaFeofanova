@@ -1,9 +1,7 @@
 package hw6;
 
-import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Configuration;
 import cucumber.api.CucumberOptions;
-import cucumber.api.java.After;
 import cucumber.api.testng.AbstractTestNGCucumberTests;
 import org.testng.annotations.*;
 
@@ -16,7 +14,7 @@ import static com.codeborne.selenide.Selenide.close;
 public class RunAcceptance extends AbstractTestNGCucumberTests {
     @BeforeMethod
         public void driverSetup(){
-        Configuration.browserPosition = "C:\\SeleniumDrivers";
+        Configuration.driverManagerEnabled = false;
         Configuration.browserVersion ="2.42";
         Configuration.browser = "Chrome";
         Configuration.timeout = 5000;
