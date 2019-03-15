@@ -9,9 +9,6 @@
     <version>1.0-SNAPSHOT</version>
 
     <properties>
-        <driver>${driver}</driver>
-        <drivers.folder>${drivers.folder}</drivers.folder>
-        <driver.version>${driver.version}</driver.version>
         <suiteXmlFile>${suiteXmlFile}</suiteXmlFile>
         <allure.version>2.6.0</allure.version>
         <aspectj.version>1.8.12</aspectj.version>
