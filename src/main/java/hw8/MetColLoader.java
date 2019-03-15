@@ -13,8 +13,6 @@ import java.util.Map;
 
 public class MetColLoader {
 
-    private static Map<String, MetalsColors> metColData;
-
     public static Map<String, MetalsColors> getFile() throws FileNotFoundException {
         Path folder = Paths.get("src/main/java/hw8");
         Path myFile = folder.resolve("metalsColorsData.json");
@@ -23,7 +21,6 @@ public class MetColLoader {
         Type token = new TypeToken<Map<String, MetalsColors>>() {
         }.getType();
 
-        metColData = new Gson().fromJson(jsonReader, token);
-        return metColData;
+        return new Gson().fromJson(jsonReader, token);
     }
 }

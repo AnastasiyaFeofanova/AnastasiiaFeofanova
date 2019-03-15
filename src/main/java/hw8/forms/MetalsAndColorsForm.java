@@ -28,6 +28,11 @@ public class MetalsAndColorsForm extends Form {
     public Droplist vegetables;
 
     public void fillIn(MetalsColors metCol) {
+        /*
+        TODO Oh my, pay attention on IDEA warning !!
+        This is quite bad mistake to work with static variables in this way.
+        TODO Take a look on test script carefully, there is no calculate action.
+         */
         summary.odds.select(metCol.summary.get(0));
         summary.even.select(metCol.summary.get(1));
         summary.calculate.click();

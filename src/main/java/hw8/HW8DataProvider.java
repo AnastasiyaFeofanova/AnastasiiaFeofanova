@@ -18,5 +18,5 @@ public class HW8DataProvider {
         }
         System.out.println(result);
         return result;
-}
+    }
 }
